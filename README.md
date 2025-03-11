@@ -20,8 +20,37 @@
   - Objects -> the most versatile of Javascript's data types
   - There's a lot to learn, even relative to the other lessons. Buckle up.
 
-### [2	Prerequisites](https://launchschool.com/lessons/4671d66f/assignments/41ceaaeb)	
-### 3	Begin the Object-Oriented JavaScript Book
+### [2	Prerequisites](https://launchschool.com/lessons/4671d66f/assignments/41ceaaeb)
+  - Concise property & concise method syntax.
+  -  instead of this:
+```javascript
+function foo(bar) {
+  return {
+    bar: bar,
+    qux: function() {
+      console.log("hello");
+    },
+  };
+}
+```
+  -  We can do this:
+```javascript
+function foo(bar) {
+  return {
+    bar,                      // same as bar: bar
+    qux() {                   // same as qux: function()
+      console.log("hello");
+    },
+  };
+}
+```
+
+### [3	Begin the Object-Oriented JavaScript Book](https://launchschool.com/lessons/4671d66f/assignments/bba44185)
+
+- For now just read:
+  - Introduction
+  - types and objects
+
 ### 4	Objects and Methods
 ### 5	Walkthrough: Object Methods
 ### 6	Practice Problems: Objects
