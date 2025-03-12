@@ -284,17 +284,177 @@ invoices.totalDue();
 
 ### [7	Mutating Objects](https://launchschool.com/lessons/4671d66f/assignments/35a7fec7)
 
-
+- all familiar
+- Watch [this](https://www.youtube.com/watch?v=9ooYYRLdg_g) when Youtube is not blocked 
 
 ### 8	Practice Problems: Mutating Objects
-### 9	Collaborator Objects
-### 10	Functions as Object Factories
-### 11	Practice Problems: Functions as Object Factories
-### 12	Object Orientation
-### 13	Practice Problems: Object Orientation
+
+1. (correct)
+Hello from the function scope!
+Hello from the global scope!
+2. Correct (demonstrates the mutability of obejcts)
+'Greetings from the function scope!'
+'Greetings from the function scope!'
+3. Incorrect
+```javascript
+let message = 'Hello from the global scope!';
+
+function func() {
+  message = 'Hello from the function scope!';
+  console.log(message);
+}
+
+func();
+console.log(message);let message = 'Hello from the global scope!';
+
+function func() {
+  message = 'Hello from the function scope!';
+  console.log(message);
+}
+
+func();
+console.log(message);
+```
+- In this example we don't pass `message` into the function, so it finds the variable in the global scope and that is where it is reassigned.
+4.
+false
+true
+5.
+Because we reassign the `animal` variable to a different object.
+
+### [9	Collaborator Objects](https://launchschool.com/lessons/4671d66f/assignments/a0e5532d)
+
+- Storing objects in other objects. Like theres a `pet` class and and `person` class. You can store a pet object in the person object to say the person owns the pet.
+- Collaborators needn't be custom objects. Technically strings and almost everything is really a collaborator because these objects are more complicated than they seem.
+
+### [10	Functions as Object Factories](https://launchschool.com/lessons/4671d66f/assignments/6463ca43)
+
+```javascript
+function makeCar(acceleration, brakeRate) {
+  return {
+    speed: 0,
+    rate: acceleration,
+    brakeRate: brakeRate,
+    accelerate() {
+      this.speed += this.rate;
+    },
+    brake() {
+      if (this.speed >= this.brakeRate) {
+        this.speed -= this.brakeRate;
+      } else {
+       this.speed = 0;
+      }
+    },
+    printSpeed() {
+      console.log(this.speed);
+    }
+  };
+}
+
+let sedan = makeCar(8, 6);
+sedan.accelerate();
+sedan.printSpeed(); // 8
+sedan.brake();
+sedan.printSpeed() // 2
+sedan.brake();
+sedan.printSpeed() // 0
+let coupe = makeCar(12, 6);
+coupe.accelerate();
+// console.log(coupe.speed); // 12
+let hatchback = makeCar(9, 6);
+```
+
+- There are other ways to create objects. This way is the object factory. 
+
+### [11	Practice Problems: Functions as Object Factories](https://launchschool.com/lessons/4671d66f/assignments/e45ab60c)
+
+```javascript
+function makeCountry(name, continent, visited = false) {
+  return {
+    name,
+    continent,
+    visited,
+    getDescription() {
+      let message = `${this.name} is located in ${this.continent}.`;
+      message += this.visited ? ' I have visited this country' : 'I have not visited this country';
+      console.log(message);
+    },
+    visitCountry() {
+      this.visited = true;
+    }
+  }
+}
+let chile = makeCountry('The Republic of Chile', 'South America');
+let canada = makeCountry('Canada', 'North America');
+let southAfrica = makeCountry('The Republic of South Africa', 'Africa');
+
+// chile.getDescription();       // "The Republic of Chile is located in South America."
+canada.getDescription();      // "Canada is located in North America."
+canada.visitCountry();
+canada.getDescription();      // "Canada is located in North America."
+// southAfrica.getDescription(); // "The Republic of South Africa is located in Africa."
+```
+
+### [12	Object Orientation](https://launchschool.com/lessons/4671d66f/assignments/d60424ee)
+
+- all familiar
+
+### [13	Practice Problems: Object Orientation](https://launchschool.com/lessons/4671d66f/assignments/1b026797)
+
+```javascript
+function createProduce(id, name, stock, price) {
+  let newProduct = {};
+  newProduct.id = id;
+  newProduct.name = name;
+  newProduct.stock = stock;
+  newProduct.price = price;
+  newProduct.describe = function() {
+    console.log(`=> Name: ${this.name}`);
+    console.log(`=> ID: ${this.id}`);
+    console.log(`=> Price: ${this.price}`);
+    console.log(`=> Stock: ${this.stock}`);
+  };
+  newProduct.setPrice = function(newPrice) {
+    if (newPrice < 0) {
+      console.log('price too low');
+    } else {
+      this.price = newPrice;
+      console.log(`${this.name} is now $${this.price}`);
+    }
+  }
+  return newProduct;
+}
+
+let scissors = createProduce(1, 'Scissors', 8, 20);
+let drill = createProduce(2, 'Big Drill', 20, 30);
+drill.describe();
+drill.setPrice(20)
+```
+
 ### 14	Summary
 
-## 3 Function Contexts and Objects	
+## [3 Function Contexts and Objects](https://launchschool.com/lessons/c9200ad2/assignments)
+
+### Introduction
+### Prerequisites
+### The Global Object
+### Practice Problems: The Global Object
+### Implicit and Explicit Function Execution Contexts
+### Practice Problems: Implicit and Explicit Function Execution Contexts
+### Hard Binding Functions with Contexts
+### Example: Changing Function Context
+### Practice Problems: Hard Binding Functions with Contexts
+###	Dealing with Context Loss (1)
+###	Dealing with Context Loss (2)
+###	Dealing with Context Loss (3)
+###	Practice Problems: Dealing with Context Loss
+###	Summary: The this Keyword in JavaScript
+###	Practice Problems: What is this? (1)
+###	Practice Problems: What is this? (2)
+###	Summary
+###	Quiz
+
+
 ## 4 Closures and Function Scope
 ## 5 Object Creation Patterns
 ## 6 Projects
