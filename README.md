@@ -672,11 +672,68 @@ let object2 = {
 baz.call(object2);  // "hello world" - `this` is still `object`
 ```
 
-### Example: Changing Function Context
-### Practice Problems: Hard Binding Functions with Contexts
-###	Dealing with Context Loss (1)
-###	Dealing with Context Loss (2)
-###	Dealing with Context Loss (3)
+- bind is non-mutating. it returns a new function.
+
+### [Example: Changing Function Context](https://launchschool.com/lessons/c9200ad2/assignments/b2b3d375)
+
+- I need to go over this again. Broadly I get it, but the finer points washed over me.
+
+### [Practice Problems: Hard Binding Functions with Contexts](https://launchschool.com/lessons/c9200ad2/assignments/5f5647a7)
+
+1. bind
+2. Nothing. Bind prints nothing, it returns a new function:
+```javascript
+let obj = {
+  message: 'JavaScript',
+};
+
+function foo() {
+  console.log(this.message);
+}
+
+foo.bind(obj);
+```
+3. 5
+4. Not sure what's happening here.
+5. Amazebulous! (correct)
+
+###	[Dealing with Context Loss (1)](https://launchschool.com/lessons/c9200ad2/assignments/013f9f02)
+
+#### Method Losing Context when Taken Out of Object
+
+- **hard binding** (not sure how this is different from normal binding
+
+```javascript
+function repeatThreeTimes(func) {
+  func();
+  func();
+  func();
+}
+
+function foo() {
+  let john = {
+    firstName: 'John',
+    lastName: 'Doe',
+    greetings() {
+      console.log('hello, ' + this.firstName + ' ' + this.lastName);
+    },
+  };
+
+  repeatThreeTimes(john.greetings.bind(john));
+}
+
+foo();
+
+// => hello, John Doe
+// => hello, John Doe
+// => hello, John Doe
+```
+ 
+### [Dealing with Context Loss (2)](https://launchschool.com/lessons/c9200ad2/assignments/022f50f4)
+
+
+
+### Dealing with Context Loss (3)
 ###	Practice Problems: Dealing with Context Loss
 ###	Summary: The this Keyword in JavaScript
 ###	Practice Problems: What is this? (1)
