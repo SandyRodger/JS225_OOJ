@@ -566,8 +566,112 @@ console.log(foo()); // 1
 console.log(foo.call(obj)); // hello
 ```
 
-### Practice Problems: Implicit and Explicit Function Execution Contexts
-### Hard Binding Functions with Contexts
+- `apply()` is identical to `.call()` except that it takes an array as the 2nd argument to passs in args.
+- Call: count the commas (because the number of arguments needs to match.
+- Apply: Arguments as array.
+
+### [Practice Problems: Implicit and Explicit Function Execution Contexts](https://launchschool.com/lessons/c9200ad2/assignments/84fbe7cb)
+
+1. I got it wrong - it is not the foo function:
+```javascript
+function foo() {
+  return this;
+}
+
+let context = foo();
+console.log(context); // Window {0: Window, window: Window, self: Window, document: document, name: '', location: Location, …}
+```
+
+2. undefined (correct) when the previous code is run in strict mode.
+3. obj object (correct)
+```javascript
+let obj = {
+  foo() {
+    return this;
+  },
+};
+
+let context = obj.foo();
+
+console.log(context);
+```
+4. 
+```javascript
+var message = 'Hello from the global scope!';
+
+function deliverMessage() {
+  console.log(this.message);
+}
+
+deliverMessage();
+
+let bar = {
+  message: 'Hello from the function scope!',
+};
+
+bar.deliverMessage = deliverMessage;
+
+bar.deliverMessage();
+```
+
+My Answer:
+- 'Hello from the global scope!'
+- ReferenceError -> bar.deliverMessage does not exist
+  -  Wrong -> correct answer: Hello from the function scope!
+
+- I need to come back to this, I don't get it.
+
+6. call and apply  (correct)
+
+7.
+```javascript
+let foo = {
+  a: 1,
+  b: 2,
+};
+
+let bar = {
+   a: 'abc',
+   b: 'def',
+   add() {
+     return this.a + this.b;
+   },
+};
+
+bar.add.call(foo); // 3
+```
+
+8. outputList.apply(fruitsObj, fruitsObj.list); (peeked)
+9. `slice()` makes a copy of the list of fruits so that each can be handled individually later.
+  - Yes but more than that `arguments` is only an array-like object. It has indices from 0 on so it can be iterated over, but one could not call `forEach` on it.
+
+### [Hard Binding Functions with Contexts](https://launchschool.com/lessons/c9200ad2/assignments/bb359c53)
+
+- `bind`:
+
+```javascript
+let object = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    return this.a + ' ' + this.b;
+  },
+};
+
+let bar = object.foo;
+bar();                                // "undefined undefined"
+
+let baz = object.foo.bind(object);
+baz();                                // "hello world"
+
+let object2 = {
+  a: 'hi',
+  b: 'there',
+};
+
+baz.call(object2);  // "hello world" - `this` is still `object`
+```
+
 ### Example: Changing Function Context
 ### Practice Problems: Hard Binding Functions with Contexts
 ###	Dealing with Context Loss (1)
