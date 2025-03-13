@@ -435,11 +435,137 @@ drill.setPrice(20)
 
 ## [3 Function Contexts and Objects](https://launchschool.com/lessons/c9200ad2/assignments)
 
+- Unline most mainstream OO languages, Javascript has **first class functions**, which means:
+  - They can be added to (and removed from) objects.
+  - They can be executed in the context of those objects
+  - They can be passed to other functions.
+  - They initially have no context and only receive one when the program executes.
+
 ### Introduction
-### Prerequisites
-### The Global Object
+### [Prerequisites](https://launchschool.com/lessons/c9200ad2/assignments/a29e48d9)
+
+- [Strict mode](https://launchschool.com/gists/406ba491)
+
+### [The Global Object](https://launchschool.com/lessons/c9200ad2/assignments/c8e3c9a4)
+
+- When we declare variables with `var` or `function` they become properties of the global object, like if they were declared without a key-word. (Not so with `let`)
+- In non-browser javascript environments the global object is `global`
+- Node.js files have a "module scope". variables defined with `var` or `let` use this scope as their context, where variables defined without use the global scope and are visible outside the file.
+- All variables and functions in node have their own scope because node files are wrapped in a function that look like this:
+```javascript
+(function (exports, require, module, __filename, __dirname) {
+   // your code is here
+});
+```
+
+- [Chrome Snippets](https://techtldr.com/using-code-snippets-in-chrome-developer-tools/)
+- In strict mode undeclared variables cannot be used. This protects agaoinst mis-spellings accidentally creating new variables.
+
 ### Practice Problems: The Global Object
-### Implicit and Explicit Function Execution Contexts
+
+1. `Window {window: Window, self: Window, document: document, name: '', location: Location, …}`
+2. 
+```javascript
+a = 10;
+console.log(window.a === a); // true
+```
+3. 
+```javascript
+"use strict"
+
+a = 10; // error
+
+console.log(window.a === a);
+```
+4. 
+```javascript
+function func() {
+  let b = 1;
+}
+
+func();
+
+console.log(b); // Reference error
+```
+5. 
+This is allowed because `b` is not declared ? I need to come back to this.
+```javascript
+function func() {
+  b = 1;
+}
+
+func();
+
+console.log(b);
+```
+6.
+```
+"use strict"
+
+function func() {
+  b = 1;
+}
+
+func();
+
+console.log(b); // reference error
+```
+- initially this wasn't returning the error. Then I realised snippets still ahd access to `b` from the previous exercises.
+
+### [Implicit and Explicit Function Execution Contexts](https://launchschool.com/lessons/c9200ad2/assignments/4cc36fd6)
+
+#### Implicit Execution Context for Functions
+
+- Every time a Javascript function is invoked, it has access to an object called the **execution context**
+- Implicit v Explicit execution context.
+- The rules for variable scope are totally seperate and different to the rules for `this`. This is demonstrated below:
+```javascript
+"use strict";
+
+function foo() {
+  console.log('this here is: ' + this);
+}
+
+foo();                // "this here is: undefined"
+console.log('this here is: ' + this); // "this here is: [object Window]"
+```
+#### Implicit Execution Context for Methods
+
+- Remember it's defined bby where the function is called. See below:
+
+```javascript
+let foo = {
+  bar() {
+    return this;
+  },
+};
+
+let baz = foo.bar;
+
+baz() === foo;    // false
+baz() === window; // true
+```
+
+#### Explicit execution context 
+
+- We can use `call` and `apply` to change the execution context when calling a function.
+
+```javascript
+a = 1;
+
+let obj = {
+  a: 'hello',
+  b: 'world',
+}
+
+function foo() {
+  return this.a;
+}
+
+console.log(foo()); // 1
+console.log(foo.call(obj)); // hello
+```
+
 ### Practice Problems: Implicit and Explicit Function Execution Contexts
 ### Hard Binding Functions with Contexts
 ### Example: Changing Function Context
