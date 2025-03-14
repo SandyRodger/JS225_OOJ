@@ -1216,10 +1216,268 @@ counter(); //3
 
 1.
 
+```javascript
+function makeCounter() {
+  let count = 0;       // declare a new variable
+  return function() {
+    count += 1;        // references count from the outer scope
+    console.log(count);
+  };
+}
 
-### Practice Problems: Closures	
-### Objects and Closures	
-### Project: Banking with Objects and Closures	
+function makeCounterLogger(num1) {
+  return function(num2) {
+    let n1Copy = num1;
+    if (n1Copy === num2) console.log(n1Copy);
+    if (n1Copy > num2) {
+      while (n1Copy >= num2) {
+        console.log(n1Copy);
+        n1Copy--
+      } 
+    } else {
+      while (n1Copy <= num2) {
+        console.log(n1Copy);
+        n1Copy++
+      } 
+    }
+  }
+}
+
+let countlog = makeCounterLogger(5);
+countlog(8);
+// 5
+// 6
+// 7
+// 8
+countlog(2);
+// 5
+// 4
+// 3
+// 2
+```
+
+2. (I found this unneccessarily difficult - am I exhausted?)
+```javascript
+
+function makeList() {
+  let items = []
+  return function (newItem) {
+    let index;
+    if (newItem) {
+      index = items.indexOf(newItem);
+      if (index === -1) {
+        items.push(newItem);
+        console.log(newItem + ' added!');
+      } else {
+        items.splice(index, 1);
+        console.log(newItem + ' removed!')
+      }
+    } else {
+      if (items.length === 0) {
+        console.log('list empty!');
+      } else {
+        items.forEach((i) => console.log(i))
+      }
+    }
+  }
+}
+
+let list = makeList();
+list() // 'The list is empty.
+list('make breakfast')
+list('read book')
+list();
+// make breakfast
+// read book
+list('make breakfast');
+// make breakfast removed!
+list();
+// read book
+```
+
+### [Practice Problems: Closures	](https://launchschool.com/lessons/0b371359/assignments/5271e93c)
+
+1. 
+```javascript
+function makeMultipleLister(num) {
+  return function() {
+    let starter = num;
+    while (starter < 100) {
+      console.log(starter);
+      starter += num;
+    }
+  }
+}
+```
+2. I thought this was cheating, but it turns out this was what LS had in mind
+
+```javascript
+   number = 0;
+
+function add(n) {
+  return number += n;
+}
+
+function subtract(n) {
+  return number -= n;
+}
+
+console.log(add(1));
+// 1
+console.log(add(42));
+// 43
+console.log(subtract(39));
+// 4
+console.log(add(6));
+// 10
+```
+
+3. There is no way to access `status` from outside the function.
+
+```javascript
+function startup() {
+  let status = 'ready';
+  return function() {
+    console.log('The system is ready.');
+  };
+}
+
+let ready = startup();
+let systemStatus = // ?
+```
+
+### [Objects and Closures](https://launchschool.com/lessons/0b371359/assignments/621678ef)
+
+1.
+
+```javascript
+function makeList() {
+  return {
+    items: [],
+    index: 0,
+    add: function (newItem) {
+      if (newItem) {
+        index = this.items.indexOf(newItem);
+        if (index === -1) {
+          this.items.push(newItem);
+          console.log(newItem + ' added!');
+        } else {
+          console.log('error: item already on the list')
+        }
+      } else {
+        console.log('error: you failed to pass in an item')
+      }
+    },
+    list: function() {
+      if (this.items.length === 0) {
+        console.log('The list is empty.');
+      } else {
+        this.items.forEach(function(item) {
+          console.log(item);
+        });
+      }
+    },
+    remove: function (newItem) {
+      if (newItem) {
+        index = this.items.indexOf(newItem);
+        if (index === -1) {
+          console.log('error, item not on the list');
+        } else {
+          this.items.splice(index, 1);
+          console.log(newItem + ' removed!');
+        }
+      } else {
+        console.log('error: you didn\'t pass in an argument')
+      }
+    }
+  }
+}
+let list = makeList();
+list.add('peas');
+// peas added!
+list.list();
+// peas
+list.add('corn');
+// corn added!
+list.list();
+// peas
+// corn
+list.remove('peas');
+// peas removed!
+list.list();
+// corn
+```
+
+2.
+
+```javascript
+function makeList() {
+  let items = [];
+  let index = 0;
+  return {
+    add: function (newItem) {
+      if (newItem) {
+        index = items.indexOf(newItem);
+        if (index === -1) {
+          items.push(newItem);
+          console.log(newItem + ' added!');
+        } else {
+          console.log('error: item already on the list')
+        }
+      } else {
+        console.log('error: you failed to pass in an item')
+      }
+    },
+    list: function() {
+      if (items.length === 0) {
+        console.log('The list is empty.');
+      } else {
+        items.forEach(function(item) {
+          console.log(item);
+        });
+      }
+    },
+    remove: function (newItem) {
+      if (newItem) {
+        index = items.indexOf(newItem);
+        if (index === -1) {
+          console.log('error, item not on the list');
+        } else {
+          items.splice(index, 1);
+          console.log(newItem + ' removed!');
+        }
+      } else {
+        console.log('error: you didn\'t pass in an argument')
+      }
+    }
+  }
+}
+let list = makeList();
+list.add('peas');
+// peas added!
+list.list();
+// peas
+list.add('corn');
+// corn added!
+list.list();
+// peas
+// corn
+list.remove('peas');
+// peas removed!
+list.list();
+// corn
+console.log(list.items);
+```
+
+#### Why use closures to make data private?
+
+- restricts data in a good way that forces other devs to use the intended interface.
+- data-integrity.
+- a disadvantage of this is that it can make it harder to extend the code, for instance here with a `clear` method.
+### [Project: Banking with Objects and Closures](https://launchschool.com/lessons/0b371359/assignments/e071c151)
+
+- 
+
 ### Garbage Collection	
 ### How Closures Affect Garbage Collection	
 ### Practice Problems: Garbage Collection	
