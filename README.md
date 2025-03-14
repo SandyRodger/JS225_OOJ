@@ -731,17 +731,506 @@ foo();
  
 ### [Dealing with Context Loss (2)](https://launchschool.com/lessons/c9200ad2/assignments/022f50f4)
 
+```javascript
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    console.log(this.a + ' ' + this.b); // hello world
+    function bar() {
+      console.log(this.a + ' ' + this.b); // undefined undefined
+    }
+
+    bar();
+  },
+};
+
+obj.foo();
+```
+
+#### Solution 1: Preserve Context with a Local Variable in the Lexical Scope
+
+SELF
+`let self = this`
+
+#### Solution 2: Pass the Context to Internal Functions
+
+CALL/APPLY
+- ie use `call` or `apply` to pass in `this`
+
+```javascript
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    function bar() {
+      console.log(this.a + ' ' + this.b);
+    }
+
+    bar.call(this);
+  }
+};
+
+obj.foo();
+> hello world
+```
+#### Solution 3: Bind the Context with a Function Expression
+
+BIND
+```JAVASCRIPT
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    let bar = function() {
+      console.log(this.a + ' ' + this.b);
+    }.bind(this);
+
+    // some lines of code
+
+    bar();
+
+    // more lines of code
+
+    bar();
+
+    // ...
+  }
+};
+
+obj.foo();
+// > hello world
+// > hello world
+```
+- I'm not sure why it the `bar` method needs to be called twice to demonstrate this.
+
+#### Solution 4: Using an Arrow Function
+
+=>
+
+```javascript
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    let bar = () => console.log(this.a + ' ' + this.b);
+    bar();
+  }
+};
+
+obj.foo();
+> hello world
+```
+
+- this makes instinctive sense to me because when using braces with a method like `reduce` one needs to return the value, but not so with arrow functions.
 
 
-### Dealing with Context Loss (3)
-###	Practice Problems: Dealing with Context Loss
-###	Summary: The this Keyword in JavaScript
-###	Practice Problems: What is this? (1)
-###	Practice Problems: What is this? (2)
-###	Summary
-###	Quiz
+### [Dealing with Context Loss (3)](https://launchschool.com/lessons/c9200ad2/assignments/f68a9f7f)
+
+- This page seems like it's covering exactly the asme material as the previous page?
+- With the exception of: 'the optional thisArg argument'
+  - `map`, `every`, `some` and `forEach` have an optional context argument, making the following possible:
+```javascript
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    }, this);
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+### [Practice Problems: Dealing with Context Loss](https://launchschool.com/lessons/c9200ad2/assignments/92892280)
+
+1. Reference error, incorrect, actually `undefined undefined is a undefined.`
+
+```javascript
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+    return this.firstName + ' ' + this.lastName + ' is a ' + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func) {
+  let returnVal = func();
+  console.log(returnVal);
+}
+
+logReturnVal(turk.getDescription);
+```
+- I didn't know that calling a non-existent property on an object returns `undefined` rather than a reference error.
+
+2. correct
+
+```javascript
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+    return this.firstName + ' ' + this.lastName + ' is a ' + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func, context) {
+  let returnVal = func.apply(context);
+  console.log(returnVal);
+}
+
+logReturnVal(turk.getDescription, turk);
+```
+3.
+```javascript
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+    let foo = function() {
+      return this.firstName + ' ' + this.lastName + ' is a ' + this.occupation + '.';
+    }.bind(turk)
+    return foo();
+  }
+};
+
+function logReturnVal(func) {
+  let returnVal = func();
+  console.log(returnVal);
+}
+
+let getTurkDescription = turk.getDescription;
+console.log(getTurkDescription());
+```
+
+LS solution
+
+```javascript
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+    return this.firstName + ' ' + this.lastName + ' is a ' + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func) {
+  let returnVal = func();
+  console.log(returnVal);
+}
+
+let getTurkDescription = turk.getDescription.bind(turk);
+console.log(getTurkDescription())
+```
+
+4. Yes it will print the desired output, because `let` (not `var` or `function`) creates a local scope that attaches its functions to their context when `this` is invoked.
+- incorrect
+- The function arguments lose their surrounding context.
+
+```javascript
+let TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames() {
+    this.titles.forEach(function(title) {
+      console.log(this.seriesTitle + ' ' + title);
+    });
+  }
+};
+
+TESgames.listGames();
+
+// undefined Arena
+// undefined Daggerfall
+// undefined Morrowind
+// undefined Oblivion
+// undefined Skyrim
+```
+
+5. Correct
+
+```javascript
+let TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames() {
+    this.titles.forEach((title) => console.log(this.seriesTitle + ' ' + title));
+  }
+};
+
+TESgames.listGames();
+
+// undefined Arena
+// undefined Daggerfall
+// undefined Morrowind
+// undefined Oblivion
+// undefined Skyrim
+```
+
+6. + 7. correct - well actually this was the solution to exercise 7. The LS soluton I have put below.
+```javascript
+let TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames() {
+    let self = this;
+    this.titles.forEach(function(title) {
+      console.log(this.seriesTitle + ' ' + title);
+    }, this);
+  }
+};
+
+TESgames.listGames();
+```
+
+```javascript
+let TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames() {
+    let self = this;
+    this.titles.forEach(function(title) {
+      console.log(self.seriesTitle + ' ' + title);
+    });
+  }
+};
+```
+8. It won't work, because of context loss, so 0
+9. 
+
+```javascript
+let foo = {
+  a: 0,
+  incrementA() {
+    let self = this;
+    function increment() {
+      self.a += 1;
+    }
+
+    increment();
+  }
+};
+
+foo.incrementA();
+foo.incrementA();
+foo.incrementA();
+console.log(foo.a)
+```
+
+10.
+
+```javascript
+let foo = {
+  a: 0,
+  incrementA() {
+    let increment = function() {
+      this.a += 1;
+    }.bind(foo)
+
+    increment.apply(this);
+    increment.apply(this);
+    increment.apply(this);
+  }
+};
+
+foo.incrementA();
+console.log(foo.a)
+```
+### [Summary: The this Keyword in JavaScript](https://launchschool.com/lessons/c9200ad2/assignments/76bc0829)
 
 
-## 4 Closures and Function Scope
+### [Practice Problems: What is this? (1)](https://launchschool.com/lessons/c9200ad2/assignments/82f593ef)](https://launchschool.com/lessons/c9200ad2/assignments/82f593ef)
+
+- rushed
+
+### [Practice Problems: What is this? (2)](https://launchschool.com/lessons/c9200ad2/assignments/7bef6908)
+
+1.
+- my answer:
+  -  In the object declaration `this` points to its containing object, which is `myChildObject`. When the `myMethod()` method is called it points to `myObject`. The method returns 1. (incorrect)
+  -  LS answer: this is myChildObject, which means this.count is undefined, so the return value is undefined.
+
+```javascript
+let myObject = {
+  count: 1,
+  myChildObject: {
+    myMethod() {
+      return this.count;
+    },
+  },
+};
+
+let r = myObject.myChildObject.myMethod();
+console.log(r) // undefined
+```
+
+2.
+
+`myObject.myChildObject.myMethod.call(myObject);`
+
+3. An error because `bind` must be invoked at declaration, not execution. (incorrect)
+
+```javascript
+let person = {
+  firstName: 'Peter',
+  lastName: 'Parker',
+  fullName() {
+    console.log(this.firstName + ' ' + this.lastName +
+                ' is the Amazing Spiderman!');
+  },
+};
+
+let whoIsSpiderman = person.fullName.bind(person); //Peter Parker is the Amazing Spiderman!
+whoIsSpiderman();
+```
+
+4.
+```javascript
+let computer = {
+  price: 30000,
+  shipping: 2000,
+  total() {
+    let tax = 3000;
+    let specialDiscount = function() {
+      if (this.price > 20000) {
+        return 1000;
+      } else {
+        return 0;
+      }
+    }.bind(computer)
+
+    return this.price + this.shipping + tax - specialDiscount();
+  }
+};
+
+console.log(computer.total());
+```
+
+
+### Summary
+### Quiz
+
+- 6/9 14.3.25
+
+## [4 Closures and Function Scope](https://launchschool.com/lessons/0b371359/home)
+
+### [Function and Scope Review	](https://launchschool.com/lessons/0b371359/assignments/613bd3bb)
+
+- 
+
+### [Higher-Order Functions](https://launchschool.com/lessons/0b371359/assignments/f5b3f244)
+
+- A higher order function is one that takes a function, returns a function, or both.
+
+```javascript
+function timed(func) {
+  return function() {
+    let start = new Date();
+    func();
+    let stop = new Date();
+    console.log((stop - start).toString() + ' ms have elapsed');
+  };
+}
+```
+
+- Note that first class functions are not the same as higehr order functions [link](https://stackoverflow.com/questions/10141124/any-difference-between-first-class-function-and-high-order-function)
+  - "There is a difference. When you say that a language has first-class functions, it means that the language treats functions as values – that you can assign a function into a variable, pass it around etc. Higher-order functions are functions that work on other functions, meaning that they take one or more functions as an argument and can also return a function.
+
+The “higher-order” concept can be applied to functions in general, like functions in the mathematical sense. The “first-class” concept only has to do with functions in programming languages. It’s seldom used when referring to a function, such as “a first-class function”. It’s much more common to say that “a language has/hasn’t first-class function support”.
+
+The two things are closely related, as it’s hard to imagine a language with first-class functions that would not also support higher-order functions, and conversely a language with higher-order functions but without first-class function support."
+
+### [Practice Problems: Higher-Order Functions](https://launchschool.com/lessons/0b371359/assignments/a4544340)
+
+1. have functions as either argument or return value.(correct)
+2. filter
+3.
+```javascript
+let numbers = [1, 2, 3, 4];
+function makeCheckEven() {
+  return (n) => n % 2 === 0;
+}
+
+let checkEven = makeCheckEven();
+let r = numbers.filter(checkEven); // [2, 4]
+console.log(r)
+```
+4.
+```javascript
+function execute(func, operand) {
+  console.log(func(operand));
+}
+
+execute(function(number) {
+  return number * 2;
+}, 10); // 20
+
+execute(function(string) {
+  return string.toUpperCase();
+}, 'hey there buddy'); // "HEY THERE BUDDY"
+```
+5. 
+```javascript
+function makeListTransformer(func) {
+  return (array) => array.map((n) => func(n))
+//return (array) => array.map(func) -> LS solution
+}
+
+let timesTwo = makeListTransformer(function(number) {
+  return number * 2;
+});
+
+let r = timesTwo([1, 2, 3, 4]); // [2, 4, 6, 8]
+
+console.log(r)
+```
+### [Closures and Private Data](https://launchschool.com/lessons/0b371359/assignments/7bd21ae8)
+
+```javascript
+function makeCounter() {
+  let count = 0;       // declare a new variable
+  return function() {
+    count += 1;        // references count from the outer scope
+    console.log(count);
+  };
+}
+
+let counter = makeCounter();
+counter(); // 1
+counter(); //2
+counter(); //3
+```
+
+- The code above makes `count` a private variable, only accessible via the `counter()` function.
+
+1.
+
+
+### Practice Problems: Closures	
+### Objects and Closures	
+### Project: Banking with Objects and Closures	
+### Garbage Collection	
+### How Closures Affect Garbage Collection	
+### Practice Problems: Garbage Collection	
+### Partial Function Application	
+### Practice Problems: Partial Function Application	
+### Immediately Invoked Function Expressions	
+### Creating a Private Scope with an IIFE	
+### Creating Private Data with an IIFE	
+### Practice Problems: IIFEs	
+### Summary	
+### Quiz	
+
 ## 5 Object Creation Patterns
 ## 6 Projects
