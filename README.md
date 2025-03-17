@@ -1876,5 +1876,16 @@ countdown(7)
 
 ### Quiz	
 
+- 6/7 (17.3.25)
+
 ## 5 Object Creation Patterns
 ## 6 Projects
+
+#### quizes:
+
+|| first | second | third
+|:--|:--|:--|:--|
+|L2: Objects|13.3.25 - 7/8 (88%)||
+|L3: Function Contexts and Objects|15.3.25 - 6/9 (67%)|||
+|L4: Closures and function scope| 17.3.25 - 6/7 (86%)||
+|L5: Object Creation Patterns |||
