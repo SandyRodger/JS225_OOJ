@@ -1878,7 +1878,69 @@ countdown(7)
 
 - 6/7 (17.3.25)
 
-## 5 Object Creation Patterns
+## [5 Object Creation Patterns](https://launchschool.com/lessons/24a4613a/assignments)
+
+### [Introduction](https://launchschool.com/lessons/24a4613a/assignments/71d1df25)
+
+
+
+### [Finish Reading the OO JavaScript Book](https://launchschool.com/lessons/24a4613a/assignments/fefebb19)
+
+
+### [Factory Functions](https://launchschool.com/lessons/24a4613a/assignments/d76ba762)
+
+#### Factory Functions
+
+
+
+### [Practice Problems: Create Objects with Factory Functions](https://launchschool.com/lessons/24a4613a/assignments/4b9d7572)
+
+
+
+### [Constructor Pattern](https://launchschool.com/lessons/24a4613a/assignments/c659f8e4)
+
+
+
+### [Objects and Prototypes](https://launchschool.com/lessons/24a4613a/assignments/da0992e3)
+
+#### The __proto__ Property
+
+- "dunder"
+
+#### Prototype Chain and the Object.prototype Object
+
+
+
+### [Prototypal Inheritance and Behavior Delegation](https://launchschool.com/lessons/24a4613a/assignments/7143264c)
+
+#### Overriding Default Behavior
+#### Object.getOwnPropertyNames and object.hasOwnProperty
+#### Methods on Object.prototype
+
+### [Practice Problems: Prototypes and Prototypal Inheritance](https://launchschool.com/lessons/24a4613a/assignments/b158be5a)
+
+
+
+### [Function Prototypes and Object Prototypes](https://launchschool.com/lessons/24a4613a/assignments/441a520a)
+
+
+
+### [Constructors, Prototypes, and the Prototype Chain](https://launchschool.com/lessons/24a4613a/assignments/5de6e5a0)
+
+
+
+### Practice Problems: Constructor Functions and Prototypes (1)
+### Practice Problems: Constructor Functions and Prototypes (2)
+### Static and Instance Properties and Methods
+### The Pseudo-classical Pattern and the OLOO Pattern
+### The Class Syntactic Sugar
+### Practice Problems: Classes
+### Which Pattern Should I Use?
+### More Methods on the Object Constructor
+### Modules
+### Douglas Crockford Lecture - JavaScript: the Good Parts
+### Summary
+
 ## 6 Projects
 
 #### quizes:
