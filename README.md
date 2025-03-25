@@ -1895,8 +1895,51 @@ countdown(7)
 
 ### [Practice Problems: Create Objects with Factory Functions](https://launchschool.com/lessons/24a4613a/assignments/4b9d7572)
 
+1.
 
+- There's no way to test what factory produced them and so what type of object they are
+- All methods are coppied which can lead to redundancy
 
+2.
+
+```javascript
+function makeObj() {
+  return {
+    propA: 10,
+    propB: 20,
+  }
+}
+```
+
+3.
+
+```javascript
+function createInvoice(invoice = {}) {
+  return {
+    phone: invoice.phone ? invoice.phone : 3000,
+    internet: invoice.internet ? invoice.internet : 5500,
+    total() {
+      return this.phone + this.internet;
+    }
+  }
+}
+```
+
+LS solution similar:
+
+```javascript
+function createInvoice(services={}) {
+  return {
+    phone: services.phone || 3000,
+    internet: services.internet || 5500,
+    total: function() {
+      return this.phone + this.internet;
+    },
+  };
+}
+```
+
+4. 
 ### [Constructor Pattern](https://launchschool.com/lessons/24a4613a/assignments/c659f8e4)
 
 
