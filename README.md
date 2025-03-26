@@ -1940,11 +1940,127 @@ function createInvoice(services={}) {
 ```
 
 4. 
+
+```javascript
+function createInvoice(services={}) {
+  let invoice = {
+    amount: services.amount || 0,
+    phone: services.phone || 0,
+    internet: services.internet || 0,
+  };
+
+  invoice.total = function() {
+    return this.phone + this.internet + this.amount;
+  };
+
+  return invoice;
+}
+
+function createPayment(services) {
+  return createInvoice(services);
+}
+```
+
+5.
+
+```javascript
+function createInvoice(services={}) {
+  return {
+    phone: [services.phone || 0],
+    internet: [services.internet || 0],
+    amount: [services.amount || 0],
+    addPayment: function(payment) {
+      this.phone -= payment.phone;
+      this.internet -= payment.internet;
+      this.amount -= payment.amount || 0;
+    },
+    addPayments: function(payments) {
+      for (i = 0; i < payments.length; i++) {
+        // console.log(payments[i])
+        this.addPayment(payments[i])
+      }
+    },
+    amountDue: function() {
+      return Number(this.phone) + Number(this.internet) + Number(this.amount);
+    }
+  };
+}
+
+function createPayment(services) {
+  services = services || {};
+  return {
+    phone: services.phone || 0,
+    internet: services.internet || 0,
+    amount: services.amount,
+    total: function() {
+      return this.amount || (this.phone + this.internet);
+    },
+  };
+}
+
+let invoice = createInvoice({
+  phone: 1200,
+  internet: 4000,
+});
+
+let payment1 = createPayment({
+  amount: 2000,
+});
+
+let payment2 = createPayment({
+  phone: 1000,
+  internet: 1200,
+});
+
+let payment3 = createPayment({
+  phone: 1000,
+});
+
+invoice.addPayment(payment1);
+
+invoice.addPayments([payment2, payment3]);
+
+let a = invoice.amountDue();       // this should return 0
+
+```
+
+
 ### [Constructor Pattern](https://launchschool.com/lessons/24a4613a/assignments/c659f8e4)
 
+- what is going on here...
 
+```javascript
+// constructor function
+function Person(firstName, lastName='') {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.fullName = function() {
+    return (this.firstName + ' ' + this.lastName).trim();
+  };
+}
+
+let john = new Person('John', 'Doe');
+let jane = new Person('Jane');
+
+console.log(john.fullName());              // "John Doe"
+console.log(jane.fullName());              // "Jane"
+
+console.log(john.constructor);             // function Person(..)
+console.log(jane.constructor);             // function Person(..)
+
+console.log(john instanceof Person);       // true
+console.log(jane instanceof Person);       // true
+```
+
+#### Problems
+
+1. Capitalised
+2. error because Lizzy is undefined
+3. `let lizzy = new Lizard();`
 
 ### [Objects and Prototypes](https://launchschool.com/lessons/24a4613a/assignments/da0992e3)
+
+- ok
 
 #### The __proto__ Property
 
@@ -1952,13 +2068,57 @@ function createInvoice(services={}) {
 
 #### Prototype Chain and the Object.prototype Object
 
+#### Problems:
 
+1. `let foo = Object.create(prot);`
+2. `console.log(Object.getPrototypeOf(foo) === prot)`
+3. `console.log(prot.isPrototypeOf(foo))`
+4. got this wrong. the 2nd returns true because Object.prototype is on the prototype chain of foo.
 
 ### [Prototypal Inheritance and Behavior Delegation](https://launchschool.com/lessons/24a4613a/assignments/7143264c)
 
+#### Prototype Chain Lookup for Property Access
+
+- ok
+
+#### Prototypal Inheritance and Behavior Delegation
+
+- 
+
 #### Overriding Default Behavior
+
+- Objects defined from the same prototype can override methods by defining methods with the same name locally.
+
+```javascript
+let dog = {
+  say() {
+    console.log(this.name + ' says Woof!');
+  },
+};
+
+let fido = Object.create(dog);
+fido.name = 'Fido';
+fido.say = function() {
+  console.log(this.name + ' says wassup!');
+};
+
+fido.say();
+let spot = Object.create(dog);
+spot.name = 'Spot';
+spot.say()
+```
+
 #### Object.getOwnPropertyNames and object.hasOwnProperty
+
+
+
 #### Methods on Object.prototype
+
+#### Problems:
+
+1. `1`
+2. `2`
+3. (I got wrong)
 
 ### [Practice Problems: Prototypes and Prototypal Inheritance](https://launchschool.com/lessons/24a4613a/assignments/b158be5a)
 
