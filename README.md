@@ -2122,17 +2122,92 @@ spot.say()
 
 ### [Practice Problems: Prototypes and Prototypal Inheritance](https://launchschool.com/lessons/24a4613a/assignments/b158be5a)
 
+1.
 
+```javascript
+function getDefiningObject(object, propKey) {
+  if (Object.is(object, null) || Object.hasOwn(object, propKey)) {
+    return object;
+  } else {
+    return getDefiningObject(Object.getPrototypeOf(object), propKey)
+  }
+}
+```
+
+LS solution:
+
+```javascript
+function getDefiningObject(object, propKey) {
+  while (object && !object.hasOwnProperty(propKey)) {
+    object = Object.getPrototypeOf(object);
+  }
+
+  return object;
+}
+```
+
+2. I didn't get there
+
+LS solution:
+
+```javascript
+function shallowCopy(object) {
+  let result = Object.create(Object.getPrototypeOf(object));
+
+  for (let prop in object) {
+    if (object.hasOwnProperty(prop)) result[prop] = object[prop];
+  }
+
+  return result;
+}
+```
+3.
+```javascript
+function extend(output, ...objects) {
+  objects.forEach((o) => {
+    Object.getOwnPropertyNames(o).forEach(function(prop) {
+      output[prop] = o[prop];
+    });
+  })
+  return output;
+}
+```
 
 ### [Function Prototypes and Object Prototypes](https://launchschool.com/lessons/24a4613a/assignments/441a520a)
 
-
+- ok
 
 ### [Constructors, Prototypes, and the Prototype Chain](https://launchschool.com/lessons/24a4613a/assignments/5de6e5a0)
 
+- ok
 
+#### The Constructor prototype Property
 
-### Practice Problems: Constructor Functions and Prototypes (1)
+- ok
+- [article](https://medium.com/@patel.aneeesh/a-shallow-dive-into-the-constructor-property-in-javascript-b0a89747058b)
+
+### [Practice Problems: Constructor Functions and Prototypes (1)](https://launchschool.com/lessons/24a4613a/assignments/2d53f659)
+
+1. got 2 out of 6
+2. 
+```javascript
+console.log(RECTANGLE.area.call(rect1));
+console.log(RECTANGLE.perimeter.call(rect1));
+```
+3. 
+```javascript
+function Circle(r) {
+  return {
+    r,
+    area: function() {
+      return (this.r ** 2)  * Math.PI ;
+    }
+  }
+}
+```
+4. An error, because where the function is called, `this` refers to the global object. -> incorrect.
+5. 
+
 ### Practice Problems: Constructor Functions and Prototypes (2)
 ### Static and Instance Properties and Methods
 ### The Pseudo-classical Pattern and the OLOO Pattern
