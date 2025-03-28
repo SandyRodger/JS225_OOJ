@@ -2208,10 +2208,279 @@ function Circle(r) {
 4. An error, because where the function is called, `this` refers to the global object. -> incorrect.
 5. 
 
-### Practice Problems: Constructor Functions and Prototypes (2)
-### Static and Instance Properties and Methods
-### The Pseudo-classical Pattern and the OLOO Pattern
-### The Class Syntactic Sugar
+```javascript
+Ninja.prototype.swing = function() {
+  this.swung = true;
+  return this
+}
+```
+
+6.
+
+My solution: `let ninjaB = Object.create(ninjaA)` , which passes the test case, but isn't correct because, it uses NinjaA as the prototype object, meaning it makes a new object which references NinjaA, rather than creating a new instance of NinjaA.
+
+LS solution: `let ninjaB = Object.create(Object.getPrototypeOf(ninjaA));`
+
+### [Practice Problems: Constructor Functions and Prototypes (2)](https://launchschool.com/lessons/24a4613a/assignments/cbb1afa7)
+
+1. I didn't quite get there on this one:
+
+```javascript
+
+let shape = {
+  getType() {
+    return this.type;
+  },
+}
+
+function Triangle(a, b, c) {
+  this.type = 'triangle';
+  this.a = a,
+  this.b = b,
+  this.c = c
+}
+
+Triangle.prototype = shape;
+Triangle.prototype.getPerimeter = function() {
+  return this.a + this.b + this.c;
+}
+
+let t = new Triangle(3, 4, 5);
+console.log(t.constructor);                 // Triangle(a, b, c)
+console.log(shape.isPrototypeOf(t));        // true
+console.log(t.getPerimeter());              // 12
+console.log(t.getType());                   // "triangle"
+```
+
+2. My incomplete answer:
+
+```javascript
+console.log("Hello".constructor);
+console.log([1,2,3].constructor);
+console.log({name: 'Srdjan'}.constructor);
+```
+
+LS answer:
+```
+console.log("Hello".constructor.name);
+console.log([1,2,3].constructor.name);
+console.log({name: 'Srdjan'}.constructor.name);
+```
+
+3.
+
+```javasscript
+function User(first, last) {
+  return {
+    name: first + ' ' + last,
+  }
+}
+```
+- not quite, I think this early returns which means the `new` constructor doesn't do it's job.
+- LS:
+
+```javascript
+function User(first, last){
+  if (!(this instanceof User)) {
+    return new User(first, last);
+  }
+
+  this.name = first + ' ' + last;
+}
+```
+
+4. 
+
+```javascript
+function createObject(obj) {
+  let output = {};
+  Object.setPrototypeOf(output, obj);
+  return output;
+}
+```
+- correct, except `setPrototypeOf` is problematic. The LS solution does : `output.prototype = obj;`
+
+5. My answer:
+
+```javascript
+Object.prototype.begetObject = function(){
+  let output = {};
+  Object.setPrototypeOf(output, this);
+  return output;
+}
+```
+- yes, but same reservation as last time.
+- LS:
+
+```javascript
+Object.prototype.begetObject = function () {
+  function F() {}
+  F.prototype = this;
+  return new F();
+}
+```
+
+6.
+```javascript
+function neww(constructor, args) {
+  let proto = constructor.prototype;
+  let output = new constructor(...args);
+  output.prototype = proto;
+  return output;
+}
+```
+
+- LS soluton adds a line at the end, which is confusing me. SOmething to do with constructor functions sometimes returning things other than objects, and this being a bad thing...
+
+`return typeof result === 'object' ? result : object;`
+
+### [Static and Instance Properties and Methods](https://launchschool.com/lessons/24a4613a/assignments/158c7550)
+
+- yup
+
+#### Instance Properties
+
+- makes sense. The properties bound to an instance are its instance properties.
+
+#### Instance Methods
+
+- yep. As above. Some of these are stored in the prototype, some on the instance itself, but we can call them all instance methods because they are available on the instance object.  
+
+#### Static Properties
+
+- defined and accessed directly on the constructor
+- Can use them to keep track of all instances created, like so:
+
+```javascript
+function Dog(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+  Dog.allDogs.push(this);
+}
+
+Dog.allDogs = [];
+```
+
+#### Static Methods
+
+```javascript
+Dog.showSpecies = function() {
+  console.log(`Dogs belong to the species ${Dog.species}`);
+};
+
+Dog.showSpecies();
+```
+
+### [The Pseudo-classical Pattern and the OLOO Pattern](https://launchschool.com/lessons/24a4613a/assignments/b01b636b)
+
+- The pseudo-classical pattern
+- The Object Linking to Other Object (OLOO) patttern.
+
+#### Object Creation Considerations
+
+Objects are rarely independent and unique. Therefore We want objects to:
+  - Be able to have their own states;
+  - Share their behaviors
+
+#### The Pseudo-classical Pattern
+
+- constructor pattern:
+
+```javascript
+let Point = function(x = 0, y = 0) {            // capitalized constructor name as a convention
+  this.x = x;                                   // initialize states with arguments
+  this.y = y;                                   // 0 as default value
+};
+```
+
+ plus prototype pattern:
+
+ ```javascript
+
+Point.prototype.onXAxis = function() {  // shared behaviors added to constructor's prototype property
+  return this.y === 0;
+};
+
+Point.prototype.onYAxis = function() {  // these methods are added one by one
+  return this.x === 0;
+};
+
+Point.prototype.distanceToOrigin = function() {
+  return Math.sqrt((this.x * this.x) + (this.y * this.y));
+};
+```
+
+works just fine:
+
+```javascript
+let pointA = new Point(30, 40);         // use new to create objects
+let pointB = new Point(20);
+
+pointA instanceof Point;                // use instanceof to check type
+pointB instanceof Point;
+
+pointA.distanceToOrigin();              // 50
+pointB.onXAxis();                       // true
+```
+
+#### The OLOO Pattern
+
+(this is history - you may come across it, but it's not on the exam)
+
+- it's not quite going in...
+
+#### Practice Problems
+
+1. 
+```javascript
+let PetPrototype = {       
+  wake() {
+    console.log('I am awake');
+  },
+
+  sleep() {
+    console.log('I am sleeping')
+  },
+
+  init(animal, name) {         
+    this.animal = animal;
+    this.name = name;
+    return this;
+  },
+};
+```
+
+2.
+```javascript
+let Pet = function(animal, name) {
+  this.animal;
+  this.name;
+}
+
+Pet.prototype.sleep = function() {
+  console.log('I am sleeping')
+}
+
+Pet.prototype.wake = function() {
+  console.log('I am awake')
+};
+
+let pudding = new Pet("Cat", "Pudding");
+let neptune = new Pet("fish", "Neptune");
+console.log(`I am a ${pudding.animal}. My name is ${pudding.name}.`);
+pudding.sleep(); // I am sleeping
+pudding.wake();  // I am awake
+
+console.log(`I am a ${neptune.animal}. My name is ${neptune.name}.`);
+neptune.sleep(); // I am sleeping
+neptune.wake();  // I am awake
+```
+
+### [The Class Syntactic Sugar](https://launchschool.com/lessons/24a4613a/assignments/9892763f)
+
+
+
 ### Practice Problems: Classes
 ### Which Pattern Should I Use?
 ### More Methods on the Object Constructor
