@@ -2479,11 +2479,20 @@ neptune.wake();  // I am awake
 
 ### [The Class Syntactic Sugar](https://launchschool.com/lessons/24a4613a/assignments/9892763f)
 
+- yup
+
+### [Practice Problems: Classes](https://launchschool.com/lessons/24a4613a/assignments/991c89d6)
+
+Simple! And fun!
+
+### [Which Pattern Should I Use?](https://launchschool.com/lessons/24a4613a/assignments/7038e6ad)
+
+- classes
+
+### [More Methods on the Object Constructor](https://launchschool.com/lessons/24a4613a/assignments/8db4bc31)
 
 
-### Practice Problems: Classes
-### Which Pattern Should I Use?
-### More Methods on the Object Constructor
+
 ### Modules
 ### Douglas Crockford Lecture - JavaScript: the Good Parts
 ### Summary
