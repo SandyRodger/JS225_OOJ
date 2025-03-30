@@ -2491,9 +2491,55 @@ Simple! And fun!
 
 ### [More Methods on the Object Constructor](https://launchschool.com/lessons/24a4613a/assignments/8db4bc31)
 
+- I didn't get the exercises right.
+- LS answer:
 
+```javascript
+function newPerson(name) {
+  return Object.defineProperties({ name: name }, {
+    log: {
+      value() {
+        console.log(this.name);
+      },
+      writable: false
+    },
+  });
+}
+```
+#### Object.freeze
 
-### Modules
+- because the array and object are compound objects, .freeze only works on property values that are not objects. It freezes he reference, not the object.
+### [Modules](https://launchschool.com/lessons/24a4613a/assignments/be1ff8b5)
+
+#### [gist](https://launchschool.com/gists/e7d0531f)
+
+- Two module systems:
+  - CommonJS modules, also known as Node modules.
+  - JS modules, also known as "ES modules" and "ECMAScript modules."
+
+##### Benefits of Modules
+  - Avoid large sprawling programs that have the following disadvantages:
+    - hard to understand
+    - more tightly coupled components (as more changes are made the different parts become more intertwined and ripples effects are less controlable)
+    - As they grow they move away from their simple, easy-to-follow, purposeful origin.
+    - Programming often involves working on multiple parts at once and in such a program this requires lots of jumping around.
+    - If there are multiple devs working on this one file then there can be problems when trying to combine the work.
+    - Encapsulation is a bothersome addition if everything is in the same file.
+  - The solution to all of the above is to seperate your code into multiple files, called 'modules':
+    - Each module focuses on different parts of the problem
+    - A team of devs can work on it without confllicting
+    - You don't need to chase down function calls
+    - Different parts tend not to become entangled as they grow
+    - Helps with private data / encapsulation because modules are private by default.
+    - You can easily use a module elsewhere without having to disentangle it from the program.
+
+##### CommonJS Modules
+
+- Node supports modules. That's how we can `require` other files
+  - `
+
+##### JS Modules
+##### 
 ### Douglas Crockford Lecture - JavaScript: the Good Parts
 ### Summary
 
