@@ -2537,11 +2537,151 @@ function newPerson(name) {
 
 - Node supports modules. That's how we can `require` other files
   - `
+- Not all flavors of JavaScript support CommonJS modules, notably the browswer doesn't (because CommonJS modules are loaded synchronously, not async -> more on that later) (syncchronous takes too long)(unless you use a transpiler)
+- 
+
+###### Creating CommonJS Modules
+
+```javascript
+function logIt(string) {
+  console.log(string);
+}
+
+module.exports = logIt;
+```
+
+- You can export multiple things at once :
+
+```javascript
+let prefix = ">> ";
+
+function logIt(string) {
+  console.log(`${prefix}${string}`);
+}
+
+function setPrefix(newPrefix) {
+  prefix = newPrefix;
+}
+
+module.exports = {
+  logIt,
+  setPrefix,
+};
+```
+
+###### CommonJS Variables
+
+- module: an object that represents the current module :
+  
+```
+ 
+{
+  id: '.',
+  path: '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules',
+  exports: {},
+  filename: '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules/03_node_variables.js',
+  loaded: false,
+  children: [],
+  paths: [
+    '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules/node_modules',
+    '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/node_modules',
+    '/Users/sandyboy/Desktop/JS225_OOJ/node_modules',
+    '/Users/sandyboy/Desktop/node_modules',
+    '/Users/sandyboy/node_modules',
+    '/Users/node_modules',
+    '/node_modules'
+  ],
+  [Symbol(kIsMainSymbol)]: true,
+  [Symbol(kIsCachedByESMLoader)]: false,
+  [Symbol(kURL)]: undefined,
+  [Symbol(kFormat)]: undefined,
+  [Symbol(kIsExecuting)]: true
+}
+```
+
+- exports: the name(s) exported by the module (same as module.exports):
+
+```javascript
+{}
+```
+
+- require(moduleName): the function that loads a module:
+
+```javascript
+[Function: require] {
+  resolve: [Function: resolve] { paths: [Function: paths] },
+  main: {
+    id: '.',
+    path: '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules',
+    exports: {},
+    filename: '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules/03_node_variables.js',
+    loaded: false,
+    children: [],
+    paths: [
+      '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules/node_modules',
+      '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/node_modules',
+      '/Users/sandyboy/Desktop/JS225_OOJ/node_modules',
+      '/Users/sandyboy/Desktop/node_modules',
+      '/Users/sandyboy/node_modules',
+      '/Users/node_modules',
+      '/node_modules'
+    ],
+    [Symbol(kIsMainSymbol)]: true,
+    [Symbol(kIsCachedByESMLoader)]: false,
+    [Symbol(kURL)]: undefined,
+    [Symbol(kFormat)]: undefined,
+    [Symbol(kIsExecuting)]: true
+  },
+  extensions: [Object: null prototype] {
+    '.js': [Function (anonymous)],
+    '.json': [Function (anonymous)],
+    '.node': [Function (anonymous)]
+  },
+  cache: [Object: null prototype] {
+    '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules/03_node_variables.js': {
+      id: '.',
+      path: '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules',
+      exports: {},
+      filename: '/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules/03_node_variables.js',
+      loaded: false,
+      children: [],
+      paths: [Array],
+      [Symbol(kIsMainSymbol)]: true,
+      [Symbol(kIsCachedByESMLoader)]: false,
+      [Symbol(kURL)]: undefined,
+      [Symbol(kFormat)]: undefined,
+      [Symbol(kIsExecuting)]: true
+    }
+  }
+}
+```
+
+- __dirname: the absolute pathname of the directory that contains the module:
+
+`/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules`
+
+- __filename: the absolute pathname of the file that contains the module:
+
+`/Users/sandyboy/Desktop/JS225_OOJ/05_object_creation_patterns/19_modules/03_node_variables.js`
 
 ##### JS Modules
-##### 
-### Douglas Crockford Lecture - JavaScript: the Good Parts
-### Summary
+
+###### Some History
+
+-  RequireJS and Browserify
+-  Babel and Webpack to support older browsers
+
+###### Using JS Modules
+
+This part is about how to import and export moduels on the browser and I'm going to skip it for now.
+
+### [Douglas Crockford Lecture - JavaScript: the Good Parts](https://launchschool.com/lessons/24a4613a/assignments/a02e7ce6)
+
+- I will need to watch this when Youtube isn't blocked
+
+### [Summary](https://launchschool.com/lessons/24a4613a/assignments/bd49b355)
+
+- Yes
 
 ## 6 Projects
 
