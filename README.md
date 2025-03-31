@@ -2691,9 +2691,20 @@ This part is about how to import and export moduels on the browser and I'm going
 
 ### [Quiz](https://launchschool.com/lessons/24a4613a/assignments/17ccc38c)
 
--
+- 6/7
 
-## 6 Projects
+## [6 Projects](https://launchschool.com/lessons/303f0e4f/home)
+
+### [Introduction](https://launchschool.com/lessons/303f0e4f/assignments/f5610e4f)
+
+- call-back to RB120
+
+### [Tic-tac-toe](https://launchschool.com/lessons/303f0e4f/assignments/f6bb76f9)
+
+- [RB120 link](https://launchschool.com/lessons/97babc46/assignments/7dcb53f1)
+- 
+
+### Twenty-one
 
 #### quizes:
 
@@ -2702,4 +2713,4 @@ This part is about how to import and export moduels on the browser and I'm going
 |L2: Objects|13.3.25 - 7/8 (88%)||
 |L3: Function Contexts and Objects|15.3.25 - 6/9 (67%)|||
 |L4: Closures and function scope| 17.3.25 - 6/7 (86%)||
-|L5: Object Creation Patterns |||
+|L5: Object Creation Patterns |31.3.25 - 6/7 (86%)||
