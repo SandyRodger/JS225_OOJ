@@ -2683,6 +2683,16 @@ This part is about how to import and export moduels on the browser and I'm going
 
 - Yes
 
+###### tangent: open source contributions
+
+- https://westonludeke.medium.com/my-first-open-source-contribution-ff63fadc4a94
+- https://launchschool.com/posts/ea9a6854
+- https://www.firsttimersonly.com
+
+### [Quiz](https://launchschool.com/lessons/24a4613a/assignments/17ccc38c)
+
+-
+
 ## 6 Projects
 
 #### quizes:
