@@ -3386,6 +3386,20 @@ game.play();
 
 ### [Twenty-one](https://launchschool.com/lessons/303f0e4f/assignments/235718a8)
 
+- Fiddly. I definitely lost myself in the weeds. Next time I will make a more comprehensive plan about what objects get passed where, what their responsibilities are etc. Have a piece of paper where I can draw objects and their relationships
+
+### My progress
+
+|| first pass | second pass| third pass
+|:--|:--|:--|:--|
+|Start| 11.3.25 | 5.3.25 |
+|L1: About this course| 11.3.25 ||
+|L2: Objects|13.3.25||
+|L3: Function Contexts and Objects|15.3.25|||
+|L4: Closures and function scope| 17.3.25||
+|L5: Object Creation Patterns |31.3.25 ||
+|L6: Object Creation Patterns |4.4.25||
+
 #### quizes:
 
 || first | second | third
