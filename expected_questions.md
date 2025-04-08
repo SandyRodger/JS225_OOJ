@@ -1,0 +1,22 @@
+## My mock assessment:
+
+- Objects:
+  - Organising code into the appropriate objects
+  - Object factories
+- Determining/setting function execution context (this)
+  - Implicit function execution context
+  - explicit function execution context
+  - dealing with context loss
+  - lexical scope
+- scope and closures
+  - higher order functions
+  - creating and using private data
+  - garbage collection
+  - IIFEs
+  - Partial function application
+- Object creation patterns
+  - class syntax
+  - constructor functions
+  - pseudo-classical pattern
+  - Prototype objects
+  - Behaviour delegation.  
