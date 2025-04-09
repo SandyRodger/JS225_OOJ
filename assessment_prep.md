@@ -1,30 +1,40 @@
 # Assessment Prep
 
-- I plan to take the assessment at the end of April, which is in 22 days (Wednesday 30th)
-  - could it be even sooner? Part 1: 25th, Part2: 30th?
-- Steps:
-  - create comprehensive document (This page) which has my notes + hyper-links to the parts of the course that reference the relevant material.
+- Take assessment: Monday 21st April (12 days)
+
+### Schedule
+
+- JS229 assessment Easter Monday (21st April)
+- JS230/239 -> May
+- TS240/249 -> 1/2 June
+- Re-do RB119 -> 2/2 June
+- Prep capstone -> July
+- Move out -> beginning of July
+
+### to do
   - Write a list of expected questions with answers
     - + topics I'm shaky on.
   - Finish
     - JS225 exercises
     - JS210 exercises where I can't find that I've done them
     - Read discussion board for JS229
-    - Read these 4 articles
-      - JavaScript Weekly: Making Sense of Closures (read 8.4.25)
+    - Read these articles
       - JavaScript Weekly: Understanding Links on the Object Prototype Chain
       - JavaScript Weekly: An Introduction to First-Class Functions
       - JavaScript Weekly: What in the World is this?!
 
-  - Be ruthless about getting excellent sleep. (no alcohol)
+### done
+  - Study your LS181 assessment where you got 100%. This is the technique to use.
+  - create comprehensive document (js_225 readme) which has my notes + hyper-links to the parts of the course that reference the relevant material.
+    - Read these articles
+      - JavaScript Weekly: Making Sense of Closures (read 8.4.25)
+    - Create calendar that fits Srdjan's suggested time-frame
+### to mull
   - Maintain art. I think It's necessary for my equilibrium.
   - Start working afternoons?
-  - Create calendar that fits Srdjan's suggested time-frame
-  - Study your LS181 assessment wher eyou got 100%. This is the technique to use.
+  - Be ruthless about getting excellent sleep. (no alcohol)
   - Cancel:
     -  AM's wedding?
-    -  Beach-rave?
-
  ## [Assessment Format:](https://launchschool.com/lessons/d6ad18da/assignments/b39fe5b1)
 
 - 2 parts:
