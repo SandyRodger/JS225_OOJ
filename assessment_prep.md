@@ -31,12 +31,17 @@
     - Read discussion board for JS229
     - Write a list of expected questions with answers
 
+### to maintain
+
+- Continually be adding to Anki deck
+- Maintain art. I think It's necessary for my equilibrium. Specifically daily drawings + tutorials
+- Be ruthless about getting excellent sleep. (no alcohol)
+
 ### to mull
 
-  - Maintain art. I think It's necessary for my equilibrium.
-  - Start working afternoons?
-  - Be ruthless about getting excellent sleep. (no alcohol)
-  - Cancel AM's wedding?
+- Start working afternoons?
+- Cancel AM's wedding?
+- How am I going to use LSbot to prepare for this exam?
 
 ## [Assessment Format:](https://launchschool.com/lessons/d6ad18da/assignments/b39fe5b1)
 
@@ -72,6 +77,7 @@
 
 Objects:
   - What are javascript objects?
+    - Javascript objects are units of code that adhere to the "Object oriented" approach to programming. In this approach data and behaviours are encapsulated in objects or classes. This helps the programmer organise the program because it means parts of the object can be hidden from the rest of the code-base and code can be more easily re-used. There are several ways to create an object in Javascript. Sharing behaviour between objects requires using a system of 'prototypal inheritance' wherein methods (and less often data) are saved onto function prototype objects that can be accessed by objects on its object prototype chain.
   - What are the different ways of organising code into objects?
   - What are Object factories?
 This:
@@ -94,4 +100,8 @@ Object creation patterns
   - How are constructor functions used in javascript?
   - What is the pseudo-classical pattern?
   - Prototype objects
-  - Behaviour delegation.  
+  - Behaviour delegation.
+Weak-points:
+  - What are closures?
+    - When a function is defined Javascript saves a reference to the variables in scope at time of definition (but only if the function needs them). This means that when the function is invoked later at a different point in the program it "remembers" these variables. So closures are a combination of a function and its lexical environment. Closures are saved in memory, so a developer does not have access to them. Closures allow devs to implement private data/behaviour, partial function application and function factories . Closures persist until a function is no longer accessible (and therefore eligible for "garbage collection").
+
