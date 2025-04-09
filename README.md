@@ -1,4 +1,4 @@
-# [JS225_OOJ](https://launchschool.com/courses/a920bdfc/home)
+# [JS225_OOJ]()
 ## [1 About this Course](https://github.com/SandyRodger/JS225_OOJ/blob/main/L1_%26_2_Objects.md#1-about-this-course)
 ### [What this course covers](https://github.com/SandyRodger/JS225_OOJ/blob/main/L1_%26_2_Objects.md#what-this-course-covers)
 ## [2 Objects](https://github.com/SandyRodger/JS225_OOJ/blob/main/L1_%26_2_Objects.md#2-objects)
@@ -19,122 +19,118 @@
 ### [13	Practice Problems: Object Orientation](https://github.com/SandyRodger/JS225_OOJ/blob/main/L1_%26_2_Objects.md#13practice-problems-object-orientation)
 ### [14	Summary](https://github.com/SandyRodger/JS225_OOJ/blob/main/L1_%26_2_Objects.md#14summary)
 ---------------------------------------------------------
-## [3 Function Contexts and Objects](https://launchschool.com/lessons/c9200ad2/assignments)
+## [3 Function Contexts and Objects](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#3-function-contexts-and-objects)
 ### Introduction
-### [Prerequisites](https://launchschool.com/lessons/c9200ad2/assignments/a29e48d9)
-### [The Global Object](https://launchschool.com/lessons/c9200ad2/assignments/c8e3c9a4)
-### Practice Problems: The Global Object
-### [Implicit and Explicit Function Execution Contexts](https://launchschool.com/lessons/c9200ad2/assignments/4cc36fd6)
-#### Implicit Execution Context for Functions
-#### Implicit Execution Context for Methods
-#### Explicit execution context 
-### [Practice Problems: Implicit and Explicit Function Execution Contexts](https://launchschool.com/lessons/c9200ad2/assignments/84fbe7cb)
-### [Hard Binding Functions with Contexts](https://launchschool.com/lessons/c9200ad2/assignments/bb359c53)
-### [Example: Changing Function Context](https://launchschool.com/lessons/c9200ad2/assignments/b2b3d375)
-### [Practice Problems: Hard Binding Functions with Contexts](https://launchschool.com/lessons/c9200ad2/assignments/5f5647a7)
-###	[Dealing with Context Loss (1)](https://launchschool.com/lessons/c9200ad2/assignments/013f9f02)
-#### Method Losing Context when Taken Out of Object
-### [Dealing with Context Loss (2)](https://launchschool.com/lessons/c9200ad2/assignments/022f50f4)
+### [Prerequisites](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#prerequisites)
+#### strict mode
+### [The Global Object](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#the-global-object)
+### [Practice Problems: The Global Object](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#practice-problems-the-global-object)
+### [Implicit and Explicit Function Execution Contexts](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#practice-problems-the-global-object)
+#### [Implicit Execution Context for Functions](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#implicit-execution-context-for-functions)
+#### [Implicit Execution Context for Methods](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#implicit-execution-context-for-methods)
+#### [Explicit execution context](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#explicit-execution-context)
+### [Practice Problems: Implicit and Explicit Function Execution Contexts](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#practice-problems-implicit-and-explicit-function-execution-contexts)
+### [Hard Binding Functions with Contexts](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#hard-binding-functions-with-contexts)
+### [Example: Changing Function Context](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#example-changing-function-context)
+### [Practice Problems: Hard Binding Functions with Contexts](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#practice-problems-hard-binding-functions-with-contexts)
+
+### [Dealing with Context Loss (1)](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#dealing-with-context-loss-1)
+#### [Method Losing Context when Taken Out of Object](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#method-losing-context-when-taken-out-of-object)
+### [Dealing with Context Loss (2)](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#dealing-with-context-loss-2)
 #### Solution 1: Preserve Context with a Local Variable in the Lexical Scope
 #### Solution 2: Pass the Context to Internal Functions
-#### Solution 3: Bind the Context with a Function Expression
-#### Solution 4: Using an Arrow Function
-### [Dealing with Context Loss (3)](https://launchschool.com/lessons/c9200ad2/assignments/f68a9f7f)
-### [Practice Problems: Dealing with Context Loss](https://launchschool.com/lessons/c9200ad2/assignments/92892280)
-### [Summary: The this Keyword in JavaScript](https://launchschool.com/lessons/c9200ad2/assignments/76bc0829)
-### [Practice Problems: What is this? (1)](https://launchschool.com/lessons/c9200ad2/assignments/82f593ef)](https://launchschool.com/lessons/c9200ad2/assignments/82f593ef)
-### [Practice Problems: What is this? (2)](https://launchschool.com/lessons/c9200ad2/assignments/7bef6908)
-### Summary
-### Quiz
-## [4 Closures and Function Scope](https://launchschool.com/lessons/0b371359/home)
-### [Function and Scope Review	](https://launchschool.com/lessons/0b371359/assignments/613bd3bb)
-### [Higher-Order Functions](https://launchschool.com/lessons/0b371359/assignments/f5b3f244)
-### [Practice Problems: Higher-Order Functions](https://launchschool.com/lessons/0b371359/assignments/a4544340)
-### [Closures and Private Data](https://launchschool.com/lessons/0b371359/assignments/7bd21ae8)
-### [Practice Problems: Closures	](https://launchschool.com/lessons/0b371359/assignments/5271e93c)
-### [Objects and Closures](https://launchschool.com/lessons/0b371359/assignments/621678ef)
-#### Why use closures to make data private?
-### [Project: Banking with Objects and Closures](https://launchschool.com/lessons/0b371359/assignments/e071c151)
-### [Garbage Collection](https://launchschool.com/lessons/0b371359/assignments/48d2a179)
-#### The stack and heap
-#### Why Do You Need To Know About Garbage Collection
-### [How Closures Affect Garbage Collection](https://launchschool.com/lessons/0b371359/assignments/c19c9fbf)
-#### Problems
-### [Practice Problems: Garbage Collection](https://launchschool.com/lessons/0b371359/assignments/d5156138)
-### [Partial Function Application](https://launchschool.com/lessons/0b371359/assignments/f2c6f687)
-### [Practice Problems: Partial Function Application](https://launchschool.com/lessons/0b371359/assignments/4cb22406)
-### [Immediately Invoked Function Expressions](https://launchschool.com/lessons/0b371359/assignments/9c1daec2)	
-### [Creating a Private Scope with an IIFE](https://launchschool.com/lessons/0b371359/assignments/f27fd52c)
-### [Creating Private Data with an IIFE](https://launchschool.com/lessons/0b371359/assignments/470d67c3)
-#### Using an IIFE to Return a Function with Access to Private Data
-#### Using an IIFE to Return an Object with Private Data
-### [Practice Problems: IIFEs](https://launchschool.com/lessons/0b371359/assignments/224707db)
-### [Summary](https://launchschool.com/lessons/0b371359/assignments/7cc229dd)
-### Quiz	
-## [5 Object Creation Patterns](https://launchschool.com/lessons/24a4613a/assignments)
-### [Introduction](https://launchschool.com/lessons/24a4613a/assignments/71d1df25)
-### [Finish Reading the OO JavaScript Book](https://launchschool.com/lessons/24a4613a/assignments/fefebb19)
-### [Factory Functions](https://launchschool.com/lessons/24a4613a/assignments/d76ba762)
-#### Factory Functions
-### [Practice Problems: Create Objects with Factory Functions](https://launchschool.com/lessons/24a4613a/assignments/4b9d7572)
-### [Constructor Pattern](https://launchschool.com/lessons/24a4613a/assignments/c659f8e4)
-#### Problems
-### [Objects and Prototypes](https://launchschool.com/lessons/24a4613a/assignments/da0992e3)
-#### The __proto__ Property
-#### Prototype Chain and the Object.prototype Object
-#### Problems:
-### [Prototypal Inheritance and Behavior Delegation](https://launchschool.com/lessons/24a4613a/assignments/7143264c)
-#### Prototype Chain Lookup for Property Access
-#### Prototypal Inheritance and Behavior Delegation
-#### Overriding Default Behavior
-#### Object.getOwnPropertyNames and object.hasOwnProperty
-#### Methods on Object.prototype
-#### Problems:
-### [Practice Problems: Prototypes and Prototypal Inheritance](https://launchschool.com/lessons/24a4613a/assignments/b158be5a)
-### [Function Prototypes and Object Prototypes](https://launchschool.com/lessons/24a4613a/assignments/441a520a)
-### [Constructors, Prototypes, and the Prototype Chain](https://launchschool.com/lessons/24a4613a/assignments/5de6e5a0)
-#### The Constructor prototype Property
-### [Practice Problems: Constructor Functions and Prototypes (1)](https://launchschool.com/lessons/24a4613a/assignments/2d53f659)
-### [Practice Problems: Constructor Functions and Prototypes (2)](https://launchschool.com/lessons/24a4613a/assignments/cbb1afa7)
-### [Static and Instance Properties and Methods](https://launchschool.com/lessons/24a4613a/assignments/158c7550)
-#### Instance Properties
-#### Instance Methods
-#### Static Properties
-#### Static Methods
-### [The Pseudo-classical Pattern and the OLOO Pattern](https://launchschool.com/lessons/24a4613a/assignments/b01b636b)
-#### Object Creation Considerations
-#### The Pseudo-classical Pattern
-#### The OLOO Pattern
-#### Practice Problems
-### [The Class Syntactic Sugar](https://launchschool.com/lessons/24a4613a/assignments/9892763f)
-### [Practice Problems: Classes](https://launchschool.com/lessons/24a4613a/assignments/991c89d6)
-### [Which Pattern Should I Use?](https://launchschool.com/lessons/24a4613a/assignments/7038e6ad)
-### [More Methods on the Object Constructor](https://launchschool.com/lessons/24a4613a/assignments/8db4bc31)
-#### Object.freeze
-### [Modules](https://launchschool.com/lessons/24a4613a/assignments/be1ff8b5)
-#### [gist](https://launchschool.com/gists/e7d0531f)
-##### Benefits of Modules
-##### CommonJS Modules
-###### Creating CommonJS Modules
-###### CommonJS Variables
-##### JS Modules
-###### Some History
-###### Using JS Modules
-### [Douglas Crockford Lecture - JavaScript: the Good Parts](https://launchschool.com/lessons/24a4613a/assignments/a02e7ce6)
-### [Summary](https://launchschool.com/lessons/24a4613a/assignments/bd49b355)
-###### tangent: open source contributions
-### [Quiz](https://launchschool.com/lessons/24a4613a/assignments/17ccc38c)
-## [6 Projects](https://launchschool.com/lessons/303f0e4f/home)
-### [Introduction](https://launchschool.com/lessons/303f0e4f/assignments/f5610e4f)
-### [Tic-tac-toe](https://launchschool.com/lessons/303f0e4f/assignments/f6bb76f9)
-### [Twenty-one](https://launchschool.com/lessons/303f0e4f/assignments/235718a8)
-# Assessment Prep
-## [Assessment Format:](https://launchschool.com/lessons/d6ad18da/assignments/b39fe5b1)
-## [Part 1: Study Guide for the Test](https://launchschool.com/lessons/d6ad18da/assignments/588f2f82)
-## My mock assessment
+#### [Solution 3: Bind the Context with a Function Expression](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#solution-3-bind-the-context-with-a-function-expression)
+#### [Solution 4: Using an Arrow Function](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#solution-4-using-an-arrow-function)
+### [Dealing with Context Loss (3)](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#dealing-with-context-loss-3)
+### [Practice Problems: Dealing with Context Loss](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#practice-problems-dealing-with-context-loss)
+### [Summary: The this Keyword in JavaScript](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#summary-the-this-keyword-in-javascript)
+### [Practice Problems: What is this? (1)](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#practice-problems-what-is-this-1)
+### [Practice Problems: What is this? (2)](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#practice-problems-what-is-this-2)
+### [Summary](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#summary)
+### [Quiz](https://github.com/SandyRodger/JS225_OOJ/blob/main/L3_function_contexts_and_objects.md#quiz)
+## [4 Closures and Function Scope](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#4-closures-and-function-scope)
+### [Function and Scope Review	](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#function-and-scope-review)
+### [Higher-Order Functions](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#higher-order-functions)
+### [Practice Problems: Higher-Order Functions](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#practice-problems-higher-order-functions)
+### [Closures and Private Data](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#closures-and-private-data)
+### [Practice Problems: Closures](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#practice-problems-closures)
+### [Objects and Closures](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#objects-and-closures)
+#### [Why use closures to make data private?](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#why-use-closures-to-make-data-private)
+### [Project: Banking with Objects and Closures](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#project-banking-with-objects-and-closures)
+### [Garbage Collection](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#garbage-collection)
+#### [The stack and heap](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#the-stack-and-heap)
+#### [Why Do You Need To Know About Garbage Collection](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#why-do-you-need-to-know-about-garbage-collection)
+### [How Closures Affect Garbage Collection](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#how-closures-affect-garbage-collection)
+### [Practice Problems: Garbage Collection](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#practice-problems-garbage-collection)
+### [Partial Function Application](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#partial-function-application)
+### [Practice Problems: Partial Function Application](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#practice-problems-partial-function-application)
+### [Immediately Invoked Function Expressions](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#immediately-invoked-function-expressions)
+### [Creating a Private Scope with an IIFE](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#creating-a-private-scope-with-an-iife)
+### [Creating Private Data with an IIFE](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#creating-private-data-with-an-iife)
+#### [Using an IIFE to Return a Function with Access to Private Data](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#using-an-iife-to-return-a-function-with-access-to-private-data)
+#### [Using an IIFE to Return an Object with Private Data](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#using-an-iife-to-return-an-object-with-private-data)
+### [Practice Problems: IIFEs](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#practice-problems-iifes)
+### [Summary](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#summary)
+### [Quiz 4](https://github.com/SandyRodger/JS225_OOJ/blob/main/L4_closures_and_function_scope.md#quiz)	
+## [5 Object Creation Patterns](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#5-object-creation-patterns)
+### [Introduction](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#introduction)
+### [Finish Reading the OO JavaScript Book](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#finish-reading-the-oo-javascript-book)
+### [Factory Functions](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#factory-functions)
+### [Practice Problems: Create Objects with Factory Functions](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#practice-problems-create-objects-with-factory-functions)
+### [Constructor Pattern](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#constructor-pattern)
+### [Objects and Prototypes](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#objects-and-prototypes)
+#### [The __proto__ Property](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#the-proto-property)
+#### [Prototype Chain and the Object.prototype Object](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#prototype-chain-and-the-objectprototype-object)
+### [Prototypal Inheritance and Behavior Delegation](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#prototypal-inheritance-and-behavior-delegation)
+#### [Prototype Chain Lookup for Property Access](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#prototype-chain-lookup-for-property-access)
+#### [Prototypal Inheritance and Behavior Delegation](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#prototypal-inheritance-and-behavior-delegation-1)
+#### [Overriding Default Behavior](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#overriding-default-behavior)
+#### [Object.getOwnPropertyNames and object.hasOwnProperty](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#objectgetownpropertynames-and-objecthasownproperty)
+#### [Methods on Object.prototype](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#methods-on-objectprototype)
+### [Practice Problems: Prototypes and Prototypal Inheritance](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#practice-problems-prototypes-and-prototypal-inheritance)
+### [Function Prototypes and Object Prototypes](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#function-prototypes-and-object-prototypes)
+### [Constructors, Prototypes, and the Prototype Chain](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#constructors-prototypes-and-the-prototype-chain)
+#### [The Constructor prototype Property](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#the-constructor-prototype-property)
+### [Practice Problems: Constructor Functions and Prototypes (1)](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#practice-problems-constructor-functions-and-prototypes-1)
+### [Practice Problems: Constructor Functions and Prototypes (2)](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#practice-problems-constructor-functions-and-prototypes-2)
+### [Static and Instance Properties and Methods](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#static-and-instance-properties-and-methods)
+#### [Instance Properties](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#instance-properties)
+#### [Instance Methods](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#instance-methods)
+#### [Static Properties](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#static-properties)
+#### [Static Methods](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#static-methods)
+### [The Pseudo-classical Pattern and the OLOO Pattern]()
+#### [Object Creation Consideration](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#object-creation-considerations)
+#### [The Pseudo-classical Pattern](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#the-pseudo-classical-pattern)
+#### [The OLOO Pattern](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#the-oloo-pattern)
+### [The Class Syntactic Sugar](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#the-class-syntactic-sugar)
+### [Practice Problems: Classes](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#practice-problems-classes)
+### [Which Pattern Should I Use?](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#which-pattern-should-i-use)
+### [More Methods on the Object Constructor](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#more-methods-on-the-object-constructor)
+#### [Object.freeze](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#objectfreeze)
+### [Modules](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#modules)
+#### [gist](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#gist)
+##### [Benefits of Modules](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#benefits-of-modules)
+##### [CommonJS Modules](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#commonjs-modules)
+###### [Creating CommonJS Modules](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#creating-commonjs-modules)
+###### [CommonJS Variables](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#commonjs-modules)
+##### [JS Modules](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#js-modules)
+###### [Some History](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#some-history)
+###### [Using JS Modules](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#using-js-modules)
+### [Douglas Crockford Lecture - JavaScript: the Good Parts](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#douglas-crockford-lecture---javascript-the-good-parts)
+### [Summary](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#summary)
+###### [tangent: open source contributions](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#tangent-open-source-contributions)
+### [Quiz 5](https://github.com/SandyRodger/JS225_OOJ/blob/main/L5_object_creation_patterns.md#quiz)
+## [6 Projects](https://github.com/SandyRodger/JS225_OOJ/blob/main/L6_projects.md#6-projects)
+### [Introduction](https://github.com/SandyRodger/JS225_OOJ/blob/main/L6_projects.md#introduction)
+### [Tic-tac-toe](https://github.com/SandyRodger/JS225_OOJ/blob/main/L6_projects.md#tic-tac-toe)
+### [Twenty-one](https://github.com/SandyRodger/JS225_OOJ/blob/main/L6_projects.md#twenty-one)
+# [Assessment Prep](https://github.com/SandyRodger/JS225_OOJ/blob/main/assessment_prep.md#assessment-prep)
+## [Assessment Format:](https://github.com/SandyRodger/JS225_OOJ/blob/main/assessment_prep.md#assessment-format)
+## [Part 1: Study Guide for the Test](https://github.com/SandyRodger/JS225_OOJ/blob/main/assessment_prep.md#part-1-study-guide-for-the-test)
+## [My mock assessment](https://github.com/SandyRodger/JS225_OOJ/blob/main/assessment_prep.md#my-mock-assessment)
 -----------------------------------------
 
-# [JS225_OOJ](https://launchschool.com/courses/a920bdfc/home)
+# [JS225_OOJ]()
 
 ### My progress
 
