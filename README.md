@@ -23,6 +23,7 @@
 ## [Classes](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#classes)
 ### [Defining Classes](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#defining-classes)
 ### [Class Inheritance](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#class-inheritance)
+#### [Inheritance heirarchies](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#inheritance-hierarchies)
 ### [When Should You Use ES6 Classes?](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#when-should-you-use-es6-classes)
 ### [Summary](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#summary-3)
 ## [More About Classes](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#more-about-classes)
