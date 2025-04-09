@@ -1,7 +1,8 @@
+**Most/all of these discussion posts refer to the section of JS229 that comes after the written assessment**
+
 ## [Testing Template](https://launchschool.com/posts/bbf8d609)
 
-- I haven't seen this code or project. Perhaps it was removed. I should try and understand it better.
-- Later posts hint that this is a practice project required after one has completed the written assessment.
+- This is a practice project required after one has completed the written assessment.
 
 ```javascript
 var $ol = document.querySelector("ol");
