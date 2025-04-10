@@ -1,4 +1,4 @@
-## [OOJ book](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md)
+# [OOJ book](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md)
 ## [Introduction](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#introduction)
 ### [Why JavaScript?](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#why-javascript)
 ## [Types and Objects](https://github.com/SandyRodger/launch_school_books/blob/main/Object_oriented_javascript.md#types-and-objects)
