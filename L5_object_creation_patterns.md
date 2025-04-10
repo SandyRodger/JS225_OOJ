@@ -797,7 +797,24 @@ This part is about how to import and export moduels on the browser and I'm going
 
 ### [Douglas Crockford Lecture - JavaScript: the Good Parts](https://launchschool.com/lessons/24a4613a/assignments/a02e7ce6)
 
-- I will need to watch this when Youtube isn't blocked
+(I had already seen this)
+
+- Good parts:
+  - Lambda
+  - Dynamic Objects
+  - Loose typing
+  - Object Literals.
+- Inheritance is object oriented code re-use.
+- Two-schools:
+  - Classical
+  - Prototypal (this can do classical, can be other way round though)
+- Prototypal inheritance -> each object contains only what differentiates it from the object it inherits
+- JSLint: [42:40]
+- Unlearning falsehoods is much harder than learning thuths.
+- "Object hardening" (47:40), are objects too dynamic?
+- "new strict mode" (2008) The web has found usage for all of the bad parts of the language, therefore strict mode is optional.
+- [52:00] strict mode
+  - strict mode: does it change behaviour?
 
 ### [Summary](https://launchschool.com/lessons/24a4613a/assignments/bd49b355)
 
