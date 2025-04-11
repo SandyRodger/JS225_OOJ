@@ -100,6 +100,11 @@ Object creation patterns
   - How are constructor functions used in javascript?
   - What is the pseudo-classical pattern?
   - Prototype objects
+    - What are function prototypes?
+      -  Every non-arrow-function function in Javascript has a property called 'function prototype' that points to its function prototype.
+      -  The function prototype is an object.
+      -  In this object there is a constructor property, which actually points back to the function itself.
+      -  When the function is used with the `new` keyword to create an object, the newly created instance has a `[[prototype]]` property which points to the contructors prototype property.
   - Behaviour delegation.
 Weak-points:
   - What are closures?
