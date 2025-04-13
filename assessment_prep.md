@@ -110,3 +110,54 @@ Weak-points:
   - What are closures?
     - When a function is defined Javascript saves a reference to the variables in scope at time of definition (but only if the function needs them). This means that when the function is invoked later at a different point in the program it "remembers" these variables. So closures are a combination of a function and its lexical environment. Closures are saved in memory, so a developer does not have access to them. Closures allow devs to implement private data/behaviour, partial function application and function factories . Closures persist until a function is no longer accessible (and therefore eligible for "garbage collection").
 
+## LSbot quiz
+
+Function Prototype Practice Questions
+
+1.  ​Basic​: What is the difference between a function's prototype property and an object's internal [[Prototype]] property?
+  - In javascript functions are objects and they have a property defined on them called `prototype`, which points to an object. This object is created by javascript when the function is defined. The object is created with a `constructor` property that contains a reference pointing back at the function. When the function is called with the `new` keyword Javascript invokes the function as a constructor. This means that an object is created which has access to the methods defined in its parent function. This object has a `prototype` object, which is the `[[prototype]]` object. The object's `[[prototype]]` contains a reference to its parent function's prototype. When a method is called on the object javascript is able to search for the method in this prototype and if it is not found there to continue up the prototype chain.
+
+2.  ​Intermediate​: What will the following code output and why?
+<!---->
+// javascript
+
+   function Dog(name) {
+     this.name = name;
+   }
+   
+   Dog.prototype.bark = function() {
+     return `${this.name} says woof!`;
+   };
+   
+   let fido = new Dog('Fido');
+   Dog.prototype.bark = function() {
+     return `${this.name} says WOOF WOOF!`;
+   };
+   
+   console.log(fido.bark());
+3.  ​Intermediate​: Explain the purpose of the following code and what pattern it demonstrates:
+<!---->
+// javascript
+
+   function Dog(name, breed, weight) {
+     this.name = name;
+     this.breed = breed;
+     this.weight = weight;
+   }
+   
+   Dog.prototype.bark = function() {
+     console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+   };
+   
+   let maxi = new Dog('Maxi', 'German Shepherd', 32);
+4.  ​Advanced​: Write code to implement the following functionality:
+<!---->
+// javascript
+
+   let foo = {
+     a: 1,
+   };
+   
+   let bar = foo.begetObject();
+   foo.isPrototypeOf(bar);         // true
+Would you like me to provide solutions to these questions, or would you prefer to try answering them first?
