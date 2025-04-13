@@ -78,6 +78,7 @@
 Objects:
   - What are javascript objects?
     - Javascript objects are units of code that adhere to the "Object oriented" approach to programming. In this approach data and behaviours are encapsulated in objects or classes. This helps the programmer organise the program because it means parts of the object can be hidden from the rest of the code-base and code can be more easily re-used. There are several ways to create an object in Javascript. Sharing behaviour between objects requires using a system of 'prototypal inheritance' wherein methods (and less often data) are saved onto function prototype objects that can be accessed by objects on its object prototype chain.
+
   - What are the different ways of organising code into objects?
   - What are Object factories?
 This:
@@ -115,7 +116,18 @@ Weak-points:
 Function Prototype Practice Questions
 
 1.  ​Basic​: What is the difference between a function's prototype property and an object's internal [[Prototype]] property?
-  - In javascript functions are objects and they have a property defined on them called `prototype`, which points to an object. This object is created by javascript when the function is defined. The object is created with a `constructor` property that contains a reference pointing back at the function. When the function is called with the `new` keyword Javascript invokes the function as a constructor. This means that an object is created which has access to the methods defined in its parent function. This object has a `prototype` object, which is the `[[prototype]]` object. The object's `[[prototype]]` contains a reference to its parent function's prototype. When a method is called on the object javascript is able to search for the method in this prototype and if it is not found there to continue up the prototype chain.
+
+A function's prototype property and an object's [[Prototype]] property serve different but related purposes:
+•   ​Function's prototype property​:
+   •   This is a regular, accessible property that exists on constructor functions
+   •   It references an object that will become the prototype for instances created when the function is called with new
+   •   It contains shared properties and methods that all instances created from this constructor will inherit
+   •   It automatically contains a constructor property that points back to the function
+•   ​Object's [[Prototype]] property​:
+   •   This is an internal, hidden property of objects (accessed via Object.getPrototypeOf())
+   •   It references the object from which properties are inherited (the next object in the prototype chain)
+   •   When a constructor creates an object with new, the object's [[Prototype]] is set to the constructor's prototype object
+   •   When a property is accessed on an object but not found, JavaScript follows this link to look up the prototype chain
 
 2.  ​Intermediate​: What will the following code output and why?
 <!---->
@@ -134,7 +146,10 @@ Function Prototype Practice Questions
      return `${this.name} says WOOF WOOF!`;
    };
    
-   console.log(fido.bark());
+   console.log(fido.bark()); 
+
+   - 'Fido says WOOF WOOF!' (I got it wrong first time)
+
 3.  ​Intermediate​: Explain the purpose of the following code and what pattern it demonstrates:
 <!---->
 // javascript
@@ -150,6 +165,9 @@ Function Prototype Practice Questions
    };
    
    let maxi = new Dog('Maxi', 'German Shepherd', 32);
+
+  -  This code is written in classical Prototypal inheritance pattern and shows how we can use prototypal inheritance to create objects
+
 4.  ​Advanced​: Write code to implement the following functionality:
 <!---->
 // javascript
