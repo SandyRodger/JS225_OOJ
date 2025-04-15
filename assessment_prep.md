@@ -178,4 +178,20 @@ A function's prototype property and an object's [[Prototype]] property serve dif
    
    let bar = foo.begetObject();
    foo.isPrototypeOf(bar);         // true
-Would you like me to provide solutions to these questions, or would you prefer to try answering them first?
+
+Answer:
+
+```
+
+let foo = {
+  a: 1,
+};
+
+Object.prototype.begetObject = function() {
+  return Object.create(this);
+};
+
+let bar = foo.begetObject();
+let r = foo.isPrototypeOf(bar);
+console.log(r)
+```
