@@ -1,6 +1,8 @@
 # Assessment Prep
 
 - Take assessment: Monday 21st April (12 days) Or earlier? Next Tuesday?
+  - Now Tuesday 22nd -> I burnt out, or something like that. New Target Tuesday 29th?
+  - Assessment format changes May 2nd (in 10 days).
 - Then another study guide and a practice project
 - Take home project for which you have 24 hours.
 
@@ -40,7 +42,7 @@
 ### to mull
 
 - Start working afternoons?
-- Cancel AM's wedding?
+- Cancel AM's wedding? Done
 - How am I going to use LSbot to prepare for this exam?
 
 ## [Assessment Format:](https://launchschool.com/lessons/d6ad18da/assignments/b39fe5b1)
@@ -198,6 +200,7 @@ let obj = {
 obj.foo();  // "hello world"
 
   - What is meant by 'Implicit function execution context'?
+    -
   - What is meant by 'explicit function execution context'?
   - What is context loss and how does one deal with it?
   - Explain lexical scope
