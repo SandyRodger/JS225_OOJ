@@ -200,7 +200,7 @@ let obj = {
 obj.foo();  // "hello world"
 
   - What is meant by 'Implicit function execution context'?
-    -
+    - 
   - What is meant by 'explicit function execution context'?
   - What is context loss and how does one deal with it?
   - Explain lexical scope
