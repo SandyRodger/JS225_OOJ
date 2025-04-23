@@ -1,7 +1,7 @@
 # Assessment Prep
 
 - Take assessment: Monday 21st April (12 days) Or earlier? Next Tuesday?
-  - Now Tuesday 22nd -> I burnt out, or something like that. New Target Tuesday 29th?
+  - Now Tuesday 22nd -> I lost focus. New Target Tuesday 29th?
   - Assessment format changes May 2nd (in 10 days).
 - Then another study guide and a practice project
 - Take home project for which you have 24 hours.
@@ -32,6 +32,7 @@
     - Create calendar that fits Srdjan's suggested time-frame
     - Read discussion board for JS229
     - Write a list of expected questions with answers
+    - Cancel AM's wedding
 
 ### to maintain
 
@@ -42,7 +43,6 @@
 ### to mull
 
 - Start working afternoons?
-- Cancel AM's wedding? Done
 - How am I going to use LSbot to prepare for this exam?
 
 ## [Assessment Format:](https://launchschool.com/lessons/d6ad18da/assignments/b39fe5b1)
