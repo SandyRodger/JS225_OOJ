@@ -227,6 +227,42 @@ Object creation patterns
 Weak-points:
   - What are closures?
     - When a function is defined Javascript saves a reference to the variables in scope at time of definition (but only if the function needs them). This means that when the function is invoked later at a different point in the program it "remembers" these variables. So closures are a combination of a function and its lexical environment. Closures are saved in memory, so a developer does not have access to them. Closures allow devs to implement private data/behaviour, partial function application and function factories . Closures persist until a function is no longer accessible (and therefore eligible for "garbage collection").
+  - Arrow functions:
+1.  In callback functions
+let obj = {
+ a: 'hello',
+ b: 'world',
+ foo() {
+    [1, 2, 3].forEach((number) => {
+ console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    });
+  },
+};
+
+obj.foo();
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+2.  In nested functions inside methods:
+let obj = {
+ a: 'hello',
+ b: 'world',
+ foo: function() {
+ // Traditional function would lose context
+ let bar = () => {
+ console.log(this.a + ' ' + this.b);
+    }
+ 
+ bar(); // => hello world
+  }
+};
+
+obj.foo();
+
+3.  When functions are passed as arguments
+
+
+Remember:
 
 ## LSbot quiz
 
