@@ -38,7 +38,7 @@
 
 - Continually be adding to Anki deck
 - Maintain art. I think It's necessary for my equilibrium. Specifically daily drawings + tutorials
-- Be ruthless about getting excellent sleep. (no alcohol)
+- Be ruthless about getting excellent sleep. (no alcohol) \:
 
 ### to mull
 
@@ -105,6 +105,7 @@ Objects:
       - A complete example:
 
 ```javascript
+
 function createStudent(name, age) {
   return {
     name: name,
@@ -126,7 +127,7 @@ let student2 = createStudent('Jane', 22);
 ```
 
   - How do you set function execution context?
-Setting Execution Context in JavaScript
+
 1. Using .call() or .apply()
 These methods allow you to explicitly set the execution context when calling a function:
 // javascript
@@ -200,8 +201,53 @@ let obj = {
 obj.foo();  // "hello world"
 
   - What is meant by 'Implicit function execution context'?
-    - 
+    - When a function is called its context is saved in an object referenced by the `this` variable. If a context is not explicitly set using apply, bind, or call, then Javascript implicitly sets the context. This is what is meant by `implicit function execution context`. Its an important concept in Javascript because context depends on how the function is called, rather than where it is defined. These work by rules that are completely different to variable scoping rules. Let's look at a few examples:
+
+```javascript
+let obj = {
+  a: 1,
+  foo: function() {
+    console.log(this.a)
+  }
+}
+
+obj.foo() // 1
+// In the example above we have the Object dot function pattern where javascript automatically sets the method's context to the object it is called on.
+let bar = obj.foo
+bar() // undefined
+// In this example above we are demonstrating context loss where a function is saved to a variable, but the references to its variables is lost. bar() is called on the top-level, so `this` is set to the global object. As there is no `a` variable defined on the global object the function prints `undefined`.
+```
+    - If we wanted to prevent context loss we could ensure that our functions operate with explicit function execution context, by using apply, bind or call or an arrow function.
+
   - What is meant by 'explicit function execution context'?
+    -  Continuing from the previous answer, one can bind a function's context explicitly with apply bind or call, or with an arrow function. These are excellent ways to avoid context loss. They are demonstrated below:
+
+```javascript
+let obj = {
+  a: 1,
+  foo: function(num1, num2, num3) {
+    console.log(`${this.a} and ${num1}, ${num2}, ${num3}`)
+  }
+}
+
+//apply
+obj.foo.apply(obj, [12, 13, 14])
+//call
+obj.foo.call(obj, 1, 2, 3)
+//bind
+let boundFoo = obj.foo.bind(obj)
+boundFoo(4, 5, 6)
+//arrow function:
+let obj2 = {
+  a: 1,
+  foo: function(n1, n2, n3) {
+    let bar = () => { console.log(`${this.a} and ${num1}, ${num2}, ${num3}`) }
+    bar(n1, n2, n3)
+  }
+}
+obj.foo(7, 8, 9)
+```
+
   - What is context loss and how does one deal with it?
   - Explain lexical scope
 scope and closures:
