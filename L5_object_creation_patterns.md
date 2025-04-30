@@ -197,6 +197,28 @@ console.log(jane instanceof Person);       // true
 
 ### [Prototypal Inheritance and Behavior Delegation](https://launchschool.com/lessons/24a4613a/assignments/7143264c)
 
+// Q: what is Behaviour delegation.
+// A: This is a key component of prototypal inheritance. It is the process of Javascript looking for a function name on the prototype chain. Let's look at an example:
+let dogPrototype = {
+  bite() {
+    console.log(`chomp`)
+  },
+  identify() {
+    console.log(`I am a ${this.species}`)
+  }
+}
+
+let fido = Object.create(dogPrototype);
+fido.species = 'Dog';
+fido.identify(); // I am a Dog
+/*
+The code above works because `this` always refers to the calling object rather than the context where the function was defined.
+When Javascript reads the identify() method call in the final line it must seek where that method is defined. Javascript looks for it first in the object's local scope (within the fido object) Not finding it there, it checks the object's prototype object (this is the object referenced by fido's internal [[protype]] link). It finds the identify() method and calls it.
+This demonstrates behaviour delegation. Javascript does not find the method on `fido` so it goes to the object referenced by its prototype property and finds it there. This is a key aspect of Object Oriented Javascript as it allows functions to be defined once in a prototype object and then allow inheriting objects to have access to the function by prototypal inheritance.
+The advantages of using behaviour delegation is we reduce duplication as methods don't need to be defined on each object (which is more memory-efficient). Also if we need to update the method we only need to do it in one place.
+behaviour delegaton is different from classical inheritance because it is a runtime look-up, rather than copying the function.
+*/
+
 #### Prototype Chain Lookup for Property Access
 
 - ok
