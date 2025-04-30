@@ -1,6 +1,6 @@
 ## [3 Function Contexts and Objects](https://launchschool.com/lessons/c9200ad2/assignments)
 
-- Unline most mainstream OO languages, Javascript has **first class functions**, which means:
+- Unlike most mainstream OO languages, Javascript has **first class functions**, which means:
   - They can be added to (and removed from) objects.
   - They can be executed in the context of those objects
   - They can be passed to other functions.
