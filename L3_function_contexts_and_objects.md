@@ -79,6 +79,85 @@ console.log(b); // reference error
 
 ### [Implicit and Explicit Function Execution Contexts](https://launchschool.com/lessons/c9200ad2/assignments/4cc36fd6)
 
+#### Q:  How do you set function execution context?
+
+(9/10 from launch school)
+A:
+All functions in Javascript have a context when called. Setting a function's execution context can be done explicitly through methods like .call(), .apply() and .bind() or implicitly. I will describe 6 ways to do this below.
+1. Using .call() or .apply()
+These methods allow you to explicitly set the execution context when calling a function:
+function logNum() {
+  console.log(this.num);
+}
+
+let obj = {
+  num: 42
+};
+
+logNum.call(obj); // logs 42
+The difference between .call() and .apply() is in how arguments are passed:
+•   .call(context, arg1, arg2, ...) takes individual arguments
+•   .apply(context, [arg1, arg2, ...]) takes arguments as an array
+2. Using .bind()
+The .bind() method returns a new function that is permanently bound to the specified context:
+let object = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    return this.a + ' ' + this.b;
+  },
+};
+
+let bar = object.foo;
+bar();  // "undefined undefined"
+
+let baz = object.foo.bind(object);
+baz();  // "hello world"
+Even if you later try to change the context with .call() or .apply(), the bound function will retain its original context.
+3. Using the lexical scope with a local variable
+This approach preserves the context by assigning this to a local variable:
+let obj = {
+ a: 'hello',
+  b: 'world',
+  foo() {
+    let self = this;  // Save context to a variable
+
+    function bar() {
+      console.log(self.a + ' ' + self.b);  // Use saved context
+    }
+
+    bar();
+  }
+};
+
+obj.foo();  // "hello world"
+4. Arrow functions
+Arrow functions are automatically bound to the execution context of the enclosing function:
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    // Arrow function uses the surrounding context
+    const bar = () => {
+      console.log(this.a + ' ' + this.b);
+    };
+    
+    bar();
+  }
+};
+
+obj.foo();  // "hello world"
+5. object dot function syntax. One can set the context of a function implicitly by calling it on an object with dot syntax as follows:
+let person = {
+  run() {
+    console.log("I'm running")
+  }
+}
+
+person.run()
+In the example above the context is the object before the dot. Without this the context would be set to the  environment object in which the function is called, which here is the global object. (Unless called using strict mode in which case the default context is undefined)
+6. Creating a new object with a constructor. This set's the newly created object's context (this) to itself.
+
 #### Implicit Execution Context for Functions
 
 - Every time a Javascript function is invoked, it has access to an object called the **execution context**
