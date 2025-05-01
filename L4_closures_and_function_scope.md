@@ -553,6 +553,28 @@ function makeBank() {
 
 - As long as a variable remains accessible Javascript can't free up that piece of memory for garbage collection.
 
+##### What is garbage collection?
+
+Garbage collection, or GC, is an automatic process by which Javascript frees up memory by deleting values that are no longer needed. It does this by tracking references. This allows it to find values that have no remaining references in the program and delete them. Here is an example:
+
+let height = 180
+let func = function() {
+  let name = 'charles';
+  console.log(name);
+}
+
+func() // charles
+// name is now eligible for GC
+// height is not eligible for GC as the reference count for it is greater than 0
+
+GC helps to prevent memory leaks, bugs and security failures. It is in contrast with other languages like C/C++ where memory must be manually deallocated.
+
+A problem with GC is when objects reference each other, in which case they will never be deleted. These are called reference cycles and can cause memory leaks. Modern Javascript uses a mark and sweep algorithm to avoid this problem.
+
+GC applies differently to objects stored on the stack and on the heap. On the stack Javascript stores most primitive values and references. Everything else goes on the heap.
+
+GC happens at automated intervals and cannot be triggered by a dev. Not does GC happen immediately when a variable becomes eligible for GC.
+
 #### The stack and heap
 
 - not all values in JS are garbage-collected.
