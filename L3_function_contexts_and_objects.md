@@ -462,6 +462,39 @@ let obj = {
 obj.foo();
 ```
 
+##### Q: Explain lexical scope
+
+A:
+
+lexical scoping (AKA "static scoping") refers to how and where Javascript finds variables of that name and that is determined by where its written. When a variable is referenced and Javascript has to find where it is defined it will look in the scope of where it is written and then out into successive outer scopes until it reaches the global scope.
+
+In the example below we see that in Javascript variables in functions can reference variables outside the function, but not the other way around
+
+function func1() {
+  let outer4 = '4';
+  let outer3 = '3'
+  return function func2() {
+    console.log(outer4) // 4
+    let outer2 = '2';
+    // console.log(outer1) // reference error
+    return function func3() {
+      let outer1 = '1';
+      let outer4 = '5';
+      console.log(outer4) // 5
+      console.log(outer3) // 3
+      console.log(outer2) // 2
+      console.log(outer1) // 1
+    }
+  }
+}
+
+let globalScopeFunc2 = func1()
+let globalScopeFunc3 = globalScopeFunc2();
+globalScopeFunc3() // 4 5 3 2 1
+As lexical scope is determined when written in the source code, its not effected by how it is invoked. It governs all identifiers including functions.
+
+One important aspect of lexical scope is scope shadowing which I have demonstrated with the outer4 variable which is overwritten.
+
 #### Solution 1: Preserve Context with a Local Variable in the Lexical Scope
 
 SELF
