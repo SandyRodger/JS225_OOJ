@@ -70,6 +70,78 @@ let r = timesTwo([1, 2, 3, 4]); // [2, 4, 6, 8]
 
 console.log(r)
 ```
+##### Q: How does one create and use private data?
+
+A:
+closures:
+function createAccount() {
+  let balance = 100;
+  return {
+    deposit(n) {
+      balance += n;
+      console.log(`new balance is ${balance}`);
+    },
+    withdraw(n) {
+      balance -= n;
+      console.log(`new balance is ${balance}`);
+    },
+    displayBalance() {
+      console.log(`balance is ${balance}`);
+    }
+  }
+}
+
+let myAccount = createAccount();
+myAccount.deposit(200); // new balance is 300
+myAccount.withdraw(30); // new balance is 270
+myAccount.displayBalance(); // balance is 270
+console.log(myAccount.balance) // undefined
+private data in classes:
+class Account {
+  #balance = 100;
+
+  constructor(accountHolder) {
+    this.accountHolder = accountHolder;
+    this.interestPercent = 4;
+  }
+
+  #displayBalancePrivate() {
+    console.log(this.#balance)
+  };
+  displayBalancePublic() {
+    this.#displayBalancePrivate()
+  };
+}
+
+let myAccount = new Account('Alex')
+myAccount.displayBalancePublic() // 100
+// myAccount.#displayBalancePrivate() // SyntaxError
+// console.log(myAccount.#balance) // SyntaxError
+IIFEs:
+let myAccount = (function() {
+  let balance = 100;
+  return {
+    deposit(n) {
+      balance += n;
+      console.log(`new balance is ${balance}`);
+    },
+    withdraw(n) {
+      balance -= n;
+      console.log(`new balance is ${balance}`);
+    },
+    displayBalance() {
+      console.log(`balance is ${balance}`);
+    }
+  }
+})()
+
+myAccount.displayBalance(); // balance is 100
+myAccount.deposit(200); // new balance is 300
+myAccount.withdraw(2); // new balance is 298
+myAccount.displayBalance(); // balance is 298
+console.log(myAccount.balance) // undefined
+Private data is crucial in Javascript for protecting data from unintended modification and for data-encapsulation and  security.
+
 ### [Closures and Private Data](https://launchschool.com/lessons/0b371359/assignments/7bd21ae8)
 
 ```javascript
