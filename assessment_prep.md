@@ -76,11 +76,9 @@
     - Behaviour delegation.  
 
 ## My mock assessment:
-scope and closures:
   - What are higher order functions?
   - How does one create and use private data?
-  - What is garbage collection?
-  - What are IIFEs and why would one use them?
+ - What are IIFEs and why would one use them?
   - What is Partial function application? (Why is it used?, what is it good for? How is it executed?)
 Object creation patterns
   - What are the different object creation patterns covered in this course?
@@ -96,45 +94,6 @@ Object creation patterns
       -  In this object there is a constructor property, which actually points back to the function itself.
       -  When the function is used with the `new` keyword to create an object, the newly created instance has a `[[prototype]]` property which points to the contructors prototype property.
   - Behaviour delegation.
-Weak-points:
-  - What are closures?
-    - When a function is defined Javascript saves a reference to the variables in scope at time of definition (but only if the function needs them). This means that when the function is invoked later at a different point in the program it "remembers" these variables. So closures are a combination of a function and its lexical environment. Closures are saved in memory, so a developer does not have access to them. Closures allow devs to implement private data/behaviour, partial function application and function factories . Closures persist until a function is no longer accessible (and therefore eligible for "garbage collection").
-  - Arrow functions:
-1.  In callback functions
-let obj = {
- a: 'hello',
- b: 'world',
- foo() {
-    [1, 2, 3].forEach((number) => {
- console.log(String(number) + ' ' + this.a + ' ' + this.b);
-    });
-  },
-};
-
-obj.foo();
-// => 1 hello world
-// => 2 hello world
-// => 3 hello world
-2.  In nested functions inside methods:
-let obj = {
- a: 'hello',
- b: 'world',
- foo: function() {
- // Traditional function would lose context
- let bar = () => {
- console.log(this.a + ' ' + this.b);
-    }
- 
- bar(); // => hello world
-  }
-};
-
-obj.foo();
-
-3.  When functions are passed as arguments
-
-
-Remember:
 
 ## LSbot quiz
 
