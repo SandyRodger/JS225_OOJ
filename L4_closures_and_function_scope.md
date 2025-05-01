@@ -1,5 +1,9 @@
 ## [4 Closures and Function Scope](https://launchschool.com/lessons/0b371359/home)
 
+#####  Q: What are closures?
+
+    - When a function is defined Javascript saves a reference to the variables in scope at time of definition (but only if the function needs them). This means that when the function is invoked later at a different point in the program it "remembers" these variables. So closures are a combination of a function and its lexical environment. Closures are saved in memory, so a developer does not have access to them. Closures allow devs to implement private data/behaviour, partial function application and function factories . Closures persist until a function is no longer accessible (and therefore eligible for "garbage collection").
+
 ### [Function and Scope Review	](https://launchschool.com/lessons/0b371359/assignments/613bd3bb)
 
 - 
