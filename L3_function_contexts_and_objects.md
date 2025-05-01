@@ -173,6 +173,51 @@ function foo() {
 foo();                // "this here is: undefined"
 console.log('this here is: ' + this); // "this here is: [object Window]"
 ```
+
+##### Q: What is meant by 'Implicit function execution context'?
+
+ A:  When a function is called its context is saved in an object referenced by the `this` variable. If a context is not explicitly set using apply, bind, or call, then Javascript implicitly sets the context. This is what is meant by `implicit function execution context`. Its an important concept in Javascript because context depends on how the function is called, rather than where it is defined. The setting of the context that the function has access to works by rules that are completely different to variable scoping rules. Let's look at a few examples:
+let obj = {
+  a: 1,
+  foo: function() {
+    console.log(this.a)
+  }
+}
+
+obj.foo() // 1
+In the example above we have the Object dot function pattern where javascript automatically sets the method's context to the object it is called on. This looks explicit as we provide the calling object, but is still in fact implicit.
+let bar = obj.foo
+bar() // undefined
+In the example above we are demonstrating context loss where a function is saved to a variable, but the references to its variables are lost. Because bar() is not called on an object it receives the context of the global object. So `this` is set to the global object, which in a browser is window but in Node.js is global (in strict mode regular function calls bind this  to undefined rather than the global object). If there was an a variable defined on the gobal object it would print that but assuming there is no `a` global variable, this line prints undefined.
+Alternatively one could set the context lexically with an arrow function. Arrow functions inherit their surrounding context, as demonstrated below:
+//arrow function:
+let obj2 = {
+  a: 1,
+  foo: function(n1, n2, n3) {
+    let bar = () => { console.log(`${this.a} and ${n1}, ${n2}, ${n3}`) }
+    bar(n1, n2, n3)
+  },
+} 
+obj2.foo(7, 8, 9)
+
+##### Q: What is meant by 'explicit function execution context'?
+
+A: Continuing from the previous answer, one can bind a function's context explicitly with apply bind or call. These are excellent ways to avoid context loss. They are demonstrated below:
+let obj = {
+  a: 1,
+  foo: function(num1, num2, num3) {
+    console.log(`${this.a} and ${num1}, ${num2}, ${num3}`)
+  }
+}
+
+//apply
+obj.foo.apply(obj, [12, 13, 14])
+//call
+obj.foo.call(obj, 1, 2, 3)
+//bind
+let boundFoo = obj.foo.bind(obj)
+boundFoo(4, 5, 6)
+
 #### Implicit Execution Context for Methods
 
 - Remember it's defined bby where the function is called. See below:
