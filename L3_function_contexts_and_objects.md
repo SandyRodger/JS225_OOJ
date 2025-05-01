@@ -386,7 +386,32 @@ foo.bind(obj);
 4. Not sure what's happening here.
 5. Amazebulous! (correct)
 
-###	[Dealing with Context Loss (1)](https://launchschool.com/lessons/c9200ad2/assignments/013f9f02)
+### [Dealing with Context Loss (1)](https://launchschool.com/lessons/c9200ad2/assignments/013f9f02)
+
+#### q: What is context loss and how does one deal with it?
+
+a: context loss is an aspect of javascript widely considered to be a design flaw.It occurs when a function is passed to a new environment meaning that when called it has lost its original context. This can lead to buggy code.
+
+An example:
+
+let obj = {
+  a: 1,
+  foo: function() {
+    console.log(this.a)
+  }
+}
+
+obj.foo() // 1 -> avoids context loss by using object dot function syntax
+let bar = obj.foo
+bar() // undefined -> has lost context because it is now called with the global object as its context.
+
+One can ensure context is not lost in the following ways:
+
+ creating a method permanently bound to a context with .bind()
+calling a method with apply()  or call() that require a context to be passed in.
+saving the context to a variable like self and then using that variable within the method.
+using an arrow function which would inherit its context
+using object dot function syntax to provide a receiver for the method.
 
 #### Method Losing Context when Taken Out of Object
 
